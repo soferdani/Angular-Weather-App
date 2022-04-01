@@ -14,8 +14,8 @@ export class NavBarComponent implements OnInit {
   }
 
   links: ILink[] = [
-    { path: '/current-weather', label: 'Current Weather' },
-    { path: '/favorites', label: 'Favorites' }
+    { path: 'current-weather', label: 'Current Weather' },
+    { path: 'favorites', label: 'Favorites' }
   ]
 
 }

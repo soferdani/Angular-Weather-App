@@ -1,0 +1,34 @@
+
+
+.currentWeather{
+  height: 85vh;
+  display: grid;
+  grid-template:
+  ". . search . ." auto
+  "weather weather weather weather weather" 1fr;
+  align-items: center;
+
+
+  .searchBox {
+    height: auto;
+    width: 80%;
+    // border: 1px solid black;
+    grid-area: search;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2%;
+    place-content: center space-between;
+
+  }
+
+  .weatherBox{
+    background-color: rgb(250, 74, 182);
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    grid-area: weather;
+  }
+
+
+}
+

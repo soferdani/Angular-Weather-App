@@ -11,5 +11,6 @@ export class CurrentWeatherComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  value = 'Clear me';
 
 }
