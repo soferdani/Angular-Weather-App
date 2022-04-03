@@ -1,4 +1,8 @@
+import { BringWeatherService } from './bring-weather.service';
 import { Component, OnInit } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-current-weather',
@@ -6,26 +10,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./current-weather.component.scss']
 })
 export class CurrentWeatherComponent implements OnInit {
-
-  constructor() { }
-
+  constructor(private BringWeatherService:BringWeatherService) { }
   ngOnInit(): void {
+
   }
 
+  inputFromUser = new FormControl('');
+
+  cityFromUser: string = '';
+
   handelClick() {
-    // console.log("click");
+    this.BringWeatherService.getWeather(this.cityFromUser).subscribe(
+      (data) => {
+        console.log(data);
+      }
+    );
+    console.log(this.cityFromUser);
+
   }
 
   handelInput(event: any) {
-    // console.log(event.value);
+    this.cityFromUser = event.value;
   }
 
-  forecast = [
+  forecast: any[] = [
     { day: 'Monday', temp: 22 },
     { day: 'Tuesday', temp: 23 },
     { day: 'Wednesday', temp: 24 },
     { day: 'Thursday', temp: 25 },
     { day: 'Friday', temp: 26 },
   ]
+
+  searchSubject$ = new Subject<string>();
+  subscription?: Subscription;
+
 
 }
