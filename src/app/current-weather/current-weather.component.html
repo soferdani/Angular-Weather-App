@@ -1,35 +1,19 @@
 <div class="currentWeather">
   <div class="searchBox">
-    <input class="iputSearch" type="text" placeholder="City" >
-    <button mat-raised-button color="primary">Search</button>
+    <input (input)="handelInput($event.target)" class="iputSearch" type="text" placeholder="City" >
+    <button (click)="handelClick()" mat-raised-button color="primary">Search</button>
   </div>
   <div class="weatherBox">
-    <!-- <div class="currentCityTemp">tel aviv</div>
+    <div class="currentCityTemp">tel aviv</div>
     <div class="addToFavorites">
       <button>add</button>
     </div>
-    <div class="currentConditions">claudly</div>
+    <div class="currentConditions">Scattered clouds</div>
     <div class="fiveDayForecast">
-      <div class="day">
-        <div class="dayName">monday</div>
-        <div class="dayTemp">23</div>
+      <div class="forcastBox" *ngFor="let day of forecast" >
+        <div class="day">{{day.day}}</div>
+        <div class="temp">{{day.temp}}</div>
       </div>
-      <div class="day">
-        <div class="dayName">tuesday</div>
-        <div class="dayTemp">23</div>
-      </div>
-      <div class="day">
-        <div class="dayName">wednesday</div>
-        <div class="dayTemp">23</div>
-      </div>
-      <div class="day">
-        <div class="dayName">thursday</div>
-        <div class="dayTemp">23</div>
-      </div>
-      <div class="day">
-        <div class="dayName">friday</div>
-        <div class="dayTemp">23</div>
-      </div>
-    </div> -->
+    </div>
   </div>
 </div>

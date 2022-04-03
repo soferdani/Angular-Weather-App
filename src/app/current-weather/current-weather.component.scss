@@ -18,15 +18,65 @@
     grid-template-columns: 1fr 1fr;
     margin: 2%;
     place-content: center space-between;
-
   }
 
   .weatherBox{
-    background-color: rgb(250, 74, 182);
+    height: 100%;
+    width: 100%;
+    grid-area: weather;
+    display: grid;
+    grid-template:
+    "city . . favorites"
+    ". currentWeather currentWeather ."
+    "forecast forecast forecast forecast";
+  }
+
+  .currentCityTemp {
+    grid-area: city;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    border: 1px solid black;
+
+  }
+
+  .addToFavorites{
+    grid-area: favorites;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    border: 1px solid black;
+  }
+
+  .currentConditions{
+    grid-area: currentWeather;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid black;
+  }
+
+  .fiveDayForecast{
+    grid-area: forecast;
     height: 100%;
     width: 100%;
     border: 1px solid black;
-    grid-area: weather;
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .forcastBox{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    border: 1px solid black;
   }
 
 
