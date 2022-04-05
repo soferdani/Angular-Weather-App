@@ -1,14 +1,23 @@
 <div class="currentWeather">
   <div class="searchBox">
-    <input (input)="handelInput($event.target)" class="iputSearch" type="text" placeholder="City" >
-    <button (click)="handelClick()" mat-raised-button color="primary">Search</button>
+    <input
+      [formControl]="cityFromForm"
+      class="iputSearch"
+      list='cities'
+      type="text"
+      placeholder="City">
+    <!-- <datalist id='cities'>
+      <option *ngFor="let city of cities" value="{{city}}">
+    </datalist> -->
+    <button mat-raised-button color="primary">Search</button>
   </div>
   <div class="weatherBox">
     <div class="currentCityTemp">tel aviv</div>
     <div class="addToFavorites">
       <button>add</button>
     </div>
-    <div class="currentConditions">Scattered clouds</div>
+    <div class="currentConditions">Scattered clouds
+    </div>
     <div class="fiveDayForecast">
       <div class="forcastBox" *ngFor="let day of forecast" >
         <div class="day">{{day.day}}</div>

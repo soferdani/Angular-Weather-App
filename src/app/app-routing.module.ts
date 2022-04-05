@@ -4,9 +4,9 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
-  { path: "**", component: CurrentWeatherComponent },
   { path: "current-weather", component: CurrentWeatherComponent },
-  { path: "favorites", component: FavoritesComponent }
+  { path: "favorites", component: FavoritesComponent },
+  { path: "**", component: CurrentWeatherComponent },
 ];
 
 @NgModule({

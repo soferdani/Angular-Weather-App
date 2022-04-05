@@ -1,38 +1,18 @@
+import { switchMap, tap } from 'rxjs/operators';
 import { BringWeatherService } from './bring-weather.service';
 import { Component, OnInit } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { debounceTime, distinctUntilChanged, map, Observable, startWith } from 'rxjs';
 import {FormControl} from "@angular/forms";
+import { AutocompleteService } from './autocomplete.service';
+
 
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.scss']
 })
+
 export class CurrentWeatherComponent implements OnInit {
-  constructor(private BringWeatherService:BringWeatherService) { }
-  ngOnInit(): void {
-
-  }
-
-  inputFromUser = new FormControl('');
-
-  cityFromUser: string = '';
-
-  handelClick() {
-    this.BringWeatherService.getWeather(this.cityFromUser).subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
-    console.log(this.cityFromUser);
-
-  }
-
-  handelInput(event: any) {
-    this.cityFromUser = event.value;
-  }
-
   forecast: any[] = [
     { day: 'Monday', temp: 22 },
     { day: 'Tuesday', temp: 23 },
@@ -41,8 +21,40 @@ export class CurrentWeatherComponent implements OnInit {
     { day: 'Friday', temp: 26 },
   ]
 
-  searchSubject$ = new Subject<string>();
-  subscription?: Subscription;
+  cityFromForm = new FormControl('');
+  cityReadyToSearch$ = this.cityFromForm.valueChanges.pipe(
+    debounceTime(400),
+    distinctUntilChanged(),
+    startWith(''),
+  );
+
+  results$: Observable<any> = this.cityReadyToSearch$.pipe(
+    switchMap((search) => this.weatherService.getAutocomplete(search))
+    ,tap((data) => console.log('data:', data))
+  )
+
+  constructor(private readonly weatherService: BringWeatherService) { }
+
+  readonly autoCompleteCities$: Observable<string[]> | void | any = this.weatherService.autocompleteSearch$
+
+
+
+  ngOnInit(): void {
+    // this.autocompleteForm = new FormGroup({
+    //   autocomplete: new FormControl('')
+    // });
+  }
+
+
+
+  onInput(event: Event) {
+
+
+    // this.weatherService.setAction((event?.target as HTMLInputElement)?.value)
+    // console.log(this.autoCompleteCities$);
+
+  }
+
 
 
 }
