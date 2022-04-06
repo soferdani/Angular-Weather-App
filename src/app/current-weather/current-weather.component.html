@@ -1,13 +1,13 @@
 <div class="currentWeather">
   <div class="searchBox">
     <input
-      [formControl]="cityFromForm"
+      [formControl]="cityFromUser"
       class="iputSearch"
       list='cities'
       type="text"
       placeholder="City">
     <!-- <datalist id='cities'>
-      <option *ngFor="let city of cities" value="{{city}}">
+      <option *ngFor="let city of data$ | async" value="{{city[0]}}">
     </datalist> -->
     <button mat-raised-button color="primary">Search</button>
   </div>
@@ -16,8 +16,7 @@
     <div class="addToFavorites">
       <button>add</button>
     </div>
-    <div class="currentConditions">Scattered clouds
-    </div>
+    <div class="currentConditions">Scattered clouds</div>
     <div class="fiveDayForecast">
       <div class="forcastBox" *ngFor="let day of forecast" >
         <div class="day">{{day.day}}</div>

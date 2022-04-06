@@ -1,9 +1,9 @@
-import { switchMap, tap } from 'rxjs/operators';
+import { citiesAndKeys } from './weather.interface';
+import { filter, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BringWeatherService } from './bring-weather.service';
-import { Component, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged, map, Observable, startWith } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, map, Observable, startWith, Subject } from 'rxjs';
 import {FormControl} from "@angular/forms";
-import { AutocompleteService } from './autocomplete.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { AutocompleteService } from './autocomplete.service';
   styleUrls: ['./current-weather.component.scss']
 })
 
-export class CurrentWeatherComponent implements OnInit {
+export class CurrentWeatherComponent implements OnInit, OnDestroy {
   forecast: any[] = [
     { day: 'Monday', temp: 22 },
     { day: 'Tuesday', temp: 23 },
@@ -20,41 +20,32 @@ export class CurrentWeatherComponent implements OnInit {
     { day: 'Thursday', temp: 25 },
     { day: 'Friday', temp: 26 },
   ]
-
-  cityFromForm = new FormControl('');
-  cityReadyToSearch$ = this.cityFromForm.valueChanges.pipe(
-    debounceTime(400),
-    distinctUntilChanged(),
-    startWith(''),
-  );
-
-  results$: Observable<any> = this.cityReadyToSearch$.pipe(
-    switchMap((search) => this.weatherService.getAutocomplete(search))
-    ,tap((data) => console.log('data:', data))
-  )
-
   constructor(private readonly weatherService: BringWeatherService) { }
 
-  readonly autoCompleteCities$: Observable<string[]> | void | any = this.weatherService.autocompleteSearch$
+  onDestroy$ = new Subject<void>();
+
+  cityFromUser = new FormControl('');
+
+  cityReadyToSearch$: Observable<any> = this.cityFromUser.valueChanges.pipe(
+    debounceTime(400),
+    distinctUntilChanged(),
+    filter((data) => data.length > 2),
+    switchMap((search) => this.weatherService.getAutocomplete(search)),
+  )
 
 
+      ngOnInit(): void {
+        this.cityReadyToSearch$.pipe(
+          takeUntil(this.onDestroy$),
+          map((data) => {
+            return data.map((item: citiesAndKeys) => {
+              return { city: item.LocalizedName, key: item.Key }})}),
+          tap((data) => console.log('data:', data)),
+        ).subscribe()
+      }
 
-  ngOnInit(): void {
-    // this.autocompleteForm = new FormGroup({
-    //   autocomplete: new FormControl('')
-    // });
-  }
-
-
-
-  onInput(event: Event) {
-
-
-    // this.weatherService.setAction((event?.target as HTMLInputElement)?.value)
-    // console.log(this.autoCompleteCities$);
-
-  }
-
-
+      ngOnDestroy(): void {
+        this.onDestroy$.next();
+      }
 
 }
