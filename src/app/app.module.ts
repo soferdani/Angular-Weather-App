@@ -13,13 +13,18 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { FavoritesComponent } from './favorites/favorites.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
+// import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { environment } from '../environments/environment';
+import { WeatherBoxComponent } from './weather-box/weather-box.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrentWeatherComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    WeatherBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AkitaNgRouterStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,17 +6,24 @@
       list='cities'
       type="text"
       placeholder="City">
-    <!-- <datalist id='cities'>
-      <option *ngFor="let city of data$ | async" value="{{city[0]}}">
-    </datalist> -->
-    <button mat-raised-button color="primary">Search</button>
+      <!-- [matAutocomplete]="auto"> -->
+      <!-- <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let city of citiesAndKeys$ | async" [value]="city">
+          {{city.city}}
+        </mat-option>
+      </mat-autocomplete> -->
+    <button mat-raised-button (click)="handelSearch()" color="primary">Search</button>
   </div>
   <div class="weatherBox">
     <div class="currentCityTemp">tel aviv</div>
     <div class="addToFavorites">
       <button>add</button>
     </div>
-    <div class="currentConditions">Scattered clouds</div>
+    <div class="currentConditions">
+      <ng-container *ngFor="let city of citiesAndKeys$ | async">
+        {{city.city}}
+      </ng-container>
+    </div>
     <div class="fiveDayForecast">
       <div class="forcastBox" *ngFor="let day of forecast" >
         <div class="day">{{day.day}}</div>

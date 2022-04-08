@@ -19,7 +19,6 @@ export interface Country {
 }
 
 export interface citiesAndKeys {
-  LocalizedName: any;
   city: string;
   Key: number;
 }
