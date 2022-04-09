@@ -21,7 +21,8 @@
     </div>
     <div class="currentConditions">
       <ng-container *ngFor="let city of citiesAndKeys$ | async">
-        {{city.city}}
+        <div class="currentCity">{{city.city}}</div>
+        <button (click)="addToFavorites(city.Key)" >press</button>
       </ng-container>
     </div>
     <div class="fiveDayForecast">

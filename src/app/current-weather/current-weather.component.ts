@@ -23,7 +23,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   ]
 
   citiesAndKeys$: Observable<citiesAndKeys[]>;
-  
+
   constructor(
     private readonly weatherService: BringWeatherService,
     private favoritesCitiesQuery: FavoritesCitiesQuery
@@ -37,9 +37,18 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   cityFromUser = new FormControl('');
 
 
+
+  addToFavorites(key: number) {
+    console.log(key);
+    
+
+  }
+
+
+
   handelSearch() {
     const tempCityCode: number = 210841;
-    this.weatherService.getCurrentConditionsByKey(tempCityCode).pipe()
+    // this.weatherService.getCurrentConditionsByKey(tempCityCode).pipe()
   }
 
   // citiesAndKeys$: Observable<any> = this.cityFromUser.valueChanges.pipe(
