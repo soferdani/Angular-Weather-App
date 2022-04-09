@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { WeatherBoxComponent } from './weather-box.component';
 
 
-
 @NgModule({
   declarations: [
     WeatherBoxComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule
   ],
   exports: [
     WeatherBoxComponent

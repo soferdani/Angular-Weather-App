@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 // import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
+import { FavoritesModule } from './favorites/favorites.module';
 import { WeatherBoxModule } from './weather-box/weather-box.module';
 
 
@@ -23,7 +24,6 @@ import { WeatherBoxModule } from './weather-box/weather-box.module';
   declarations: [
     AppComponent,
     CurrentWeatherComponent,
-    FavoritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +37,10 @@ import { WeatherBoxModule } from './weather-box/weather-box.module';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    WeatherBoxModule,
+    FavoritesModule,
     // environment.production ? [] : AkitaNgDevtools.forRoot(),
-    AkitaNgRouterStoreModule
+    AkitaNgRouterStoreModule,
+    WeatherBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
