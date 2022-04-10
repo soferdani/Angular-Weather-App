@@ -6,6 +6,8 @@ export const FAVORITES: citiesAndKeys[] = [
   { city: 'Paris', Key: 2988507 },
   { city: 'New York', Key: 5128581 },
   { city: 'Tokyo', Key: 1850147 },
+  { city: 'Sydney', Key: 2147714 },
+  { city: 'Moscow', Key: 524901 },
 ]
 
 
