@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { citiesAndKeys } from '../current-weather/weather.interface';
+import { HttpClient } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
+
 
 export const FAVORITES: citiesAndKeys[] = [
   { city: 'London', Key: 210841 },
   { city: 'Paris', Key: 2988507 },
-  { city: 'New York', Key: 5128581 },
-  { city: 'Tokyo', Key: 1850147 },
-  { city: 'Sydney', Key: 2147714 },
-  { city: 'Moscow', Key: 524901 },
 ]
 
 
@@ -16,5 +15,12 @@ export const FAVORITES: citiesAndKeys[] = [
 })
 export class ServiceService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+
+  public getWeatherByKey(key: number) {
+    const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${environment.apiKey}`;
+    return this.httpClient.get(url);
+  }
+
 }

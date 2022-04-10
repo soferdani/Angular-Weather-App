@@ -7,10 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WeatherBoxComponent implements OnInit {
   @Input() cityName: string | null = null;
-  
+  @Input() cityKey: number | string | null = null;
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

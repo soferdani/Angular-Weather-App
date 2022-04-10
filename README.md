@@ -7,7 +7,7 @@
 - [x] Make the favorites page nice with css:
   - [x] use the weather box to show all the current
   - [x] build the weather box using material card
-- [] lksa
+- [] create a service that bring current weather condition at location 
 
 ## Questions
 - [ ] how to set up the favorite items a bit down and not so close to the nav bar.
