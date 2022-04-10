@@ -1,12 +1,15 @@
 # Angular Weather App
 
-## To Dos
+## UI - Todo
 
-- [ ] make the nav work
-- [ ] change the color of the nav to something pretty
-- [ ] make the nav take lass place in the page
+- [x] Make the nav work
+- [x] Change the color of the nav to something pretty
+- [x] Make the nav take lass place in the page
+- [ ] Make the favorites page nice with css:
+  - [ ] use the weather box to show all the current
+  - [ ] build the weather box using material card
 
+## State - Todo
+- [ ] Connect the logic 
 
-## Problem & What fix them
-- [ ] test one
- 
+## General - Todo

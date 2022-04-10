@@ -1,3 +1,4 @@
+import { FAVORITES } from './../service/service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,5 +13,8 @@ export class FavoritesComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+
+  FAVORITES = FAVORITES;
 
 }

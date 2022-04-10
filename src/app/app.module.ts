@@ -12,7 +12,6 @@ import { FavoritesModule } from './favorites/favorites.module';
 import { WeatherBoxModule } from './weather-box/weather-box.module';
 import { CurrentWeatherModule } from './current-weather/current-weather.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,

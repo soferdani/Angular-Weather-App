@@ -38,9 +38,9 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
 
 
-  addToFavorites(key: number) {
+  addToFavorites(key: number) {// need to add to favorites store
     console.log(key);
-    
+
 
   }
 

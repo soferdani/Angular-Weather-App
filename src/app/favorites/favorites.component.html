@@ -1,2 +1,6 @@
-<p>favorites works!da</p>
-<app-weather-box></app-weather-box>
+<div class="favorite-conteiner" *ngIf="FAVORITES">
+  <ng-container *ngFor="let city of FAVORITES">
+    {{ city }}
+    <app-weather-box></app-weather-box>
+  </ng-container>
+</div>
