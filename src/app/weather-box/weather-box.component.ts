@@ -1,4 +1,7 @@
+import {  Observable } from 'rxjs';
+import { ServiceService } from './../service/service.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { currentWeatherResponse } from '../service/current-weather-response.interface';
 
 @Component({
   selector: 'app-weather-box',
@@ -7,12 +10,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WeatherBoxComponent implements OnInit {
   @Input() cityName: string | null = null;
-  @Input() cityKey: number | string | null = null;
+  @Input() cityKey: number | string = 0;
 
-  constructor() { }
+  currentLocationWeather$?: Observable<currentWeatherResponse> = this.bringWeatherService.getWeatherByKey(this.cityKey);
+
+
+  constructor(
+    private bringWeatherService: ServiceService
+    ) { }
 
   ngOnInit(): void {
-    
+
   }
 
 }

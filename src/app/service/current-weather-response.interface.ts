@@ -7,20 +7,20 @@ export interface currentWeatherResponse {
   HasPrecipitation: boolean;
   PrecipitationType: string;
   IsDayTime: boolean;
-  Temperature: Temperature;
+  Temperature: {
+    Metric: {
+      Value: number;
+      Unit: string;
+      UnitType: number;
+    };
+    Imperial: {
+      Value: number;
+      Unit: string;
+      UnitType: number;
+    };
+    MobileLink: string;
+    Link: string;
+  }
   MobileLink: string;
   Link: string;
-}
-
-export interface Temperature {
-  Metric: {
-    Value: number;
-    Unit: string;
-    UnitType: number;
-  };
-  Imperial: {
-    Value: number;
-    Unit: string;
-    UnitType: number;
-  };
-}
+};
