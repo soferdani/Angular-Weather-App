@@ -10,7 +10,7 @@
       <b>{{weatherJson?.WeatherText}}</b>
     </p>
     <mat-card-content>
-      <img mat-card-image src="getWeatherUrl(weatherJson?.WeatherIcon)">
+      <img mat-card-image [src]="weatherJson.WeatherIcon | weatherUrl">
     </mat-card-content>
     <mat-card-actions>
       <button mat-button ejs-button cssClass='e-link'><a href="{{weatherJson?.Link}}" target='_blank'>MORE INFO</a></button>

@@ -1,4 +1,4 @@
-import {  Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ServiceService } from './../service/service.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { currentWeatherResponse } from '../service/current-weather-response.interface';
@@ -36,14 +36,6 @@ export class WeatherBoxComponent implements OnInit {
     },
     "MobileLink": "http://www.accuweather.com/en/ir/tehran/210841/current-weather/210841?lang=en-us",
     "Link": "http://www.accuweather.com/en/ir/tehran/210841/current-weather/210841?lang=en-us"
-  }
-
-  getWeatherUrl(weatherIcon: number) {
-    if (weatherIcon < 10) {
-      return `https://developer.accuweather.com/sites/default/files/0${weatherIcon}-s.png`;
-    } else {
-      return `https://developer.accuweather.com/sites/default/files/${weatherIcon}-s.png`;
-    }
   }
 
   constructor(
