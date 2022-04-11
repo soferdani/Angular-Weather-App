@@ -1,3 +1,4 @@
+import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { citiesAndKeys } from '../current-weather/weather.interface';
@@ -24,9 +25,8 @@ export class ServiceService {
   public getWeatherByKey(key: number | string ): Observable<currentWeatherResponse > {
       const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${environment.apiKey}`;
       return this.httpClient.get<currentWeatherResponse[]>(url).pipe(
-        map(response => response[0])
+        map(response => response[0]),
+        tap(response => console.log(response))
       );
-
   }
-
 }

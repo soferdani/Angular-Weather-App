@@ -5,22 +5,22 @@ export interface currentWeatherResponse {
   WeatherText: string;
   WeatherIcon: number;
   HasPrecipitation: boolean;
-  PrecipitationType: string;
+  PrecipitationType: string| null;
   IsDayTime: boolean;
-  Temperature: {
-    Metric: {
-      Value: number;
-      Unit: string;
-      UnitType: number;
-    };
-    Imperial: {
-      Value: number;
-      Unit: string;
-      UnitType: number;
-    };
-    MobileLink: string;
-    Link: string;
-  }
+  Temperature: Temperature;
   MobileLink: string;
   Link: string;
 };
+
+export interface Temperature {
+  Metric: {
+    Value: number;
+    Unit: string;
+    UnitType: number;
+  },
+  Imperial: {
+    Value: number;
+    Unit: string;
+    UnitType: number;
+  }
+}

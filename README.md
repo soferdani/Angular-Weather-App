@@ -1,6 +1,6 @@
 # Angular Weather App
 
-## Todo
+## Todo - Favorites
 - [x] Make the nav work
 - [x] Change the color of the nav to something pretty
 - [x] Make the nav take lass place in the page
@@ -8,10 +8,21 @@
   - [x] use the weather box to show all the current
   - [x] build the weather box using material card
 - [x] create a service that bring current weather condition at location 
-- [ ] Finish the current weather search logic
+- [x] Present the data from the weather service
+- [ ] Make that when pressing on the condition photo ill go to the condition link in english 
+- [ ] Make the remove button work - that will remove the current city from favorites
 
+## Todo - Current Weather
+- [ ] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
+- [ ] Finish the current weather search logic
 
 ## Questions
 - [x] how to set up the favorite items a bit down and not so close to the nav bar.
 - [x] how to fix the weather box component for it to bring the info from the end point.
-
+- [ ] how to make the icon number in the weather box go to the function before its runs on the template.
+- [ ] how to make the buttons in the weather box in 2 rows and not in one
+## Relevant information from current condition api
+- [ ] Weather icon + logic to make it add 0 if the number is less then 10
+- [x] Temperature - Metric - value
+- [x] WeatherText 
+- [ ] Link 
