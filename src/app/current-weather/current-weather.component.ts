@@ -1,8 +1,7 @@
 import { citiesAndKeys } from './weather.interface';
-import { filter, switchMap, takeUntil, tap, map } from 'rxjs/operators';
 import { BringWeatherService } from './bring-weather.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged, merge, Observable, startWith, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import { FavoritesCitiesQuery } from './state/current-weather.query';
 

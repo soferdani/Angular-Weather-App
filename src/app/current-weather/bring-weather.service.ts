@@ -4,6 +4,9 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
+// export const forecasts5day
+
 export class BringWeatherService {
 
   constructor(private httpClient: HttpClient) { }
