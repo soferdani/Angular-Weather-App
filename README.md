@@ -35,7 +35,7 @@
 ## Questions
 - [ ] how to make the buttons in the weather box in 2 rows and not in one
 - [ ] Say i have a costume pip that i want to use around the app - what is the best practice ? 
-
+- [ ] How to make the "more info" button be on the right side and when i click i want it to open new window
 ### Things I need from the 2 response api in the current weather
 - [ ] weather json :
   - [ ] WeatherIcon + the pip i built
@@ -43,8 +43,3 @@
   - [ ] Temperature - Metric - Value
 - [ ] citiesAndKeys:
   - [ ] city name 
-- [ ] FiveDayForecastWeatherresponseMock:
-  - [ ] day - need to format the information into day | maybe use pip
-  - [ ] temp - need to format the temp to C 
-  - [ ] link - make the card linkabol
-  - [ ] icon - use the icon pip i created

@@ -20,7 +20,7 @@ export class OneDayWeatherBoxComponent implements OnInit {
 
   ngOnInit(): void {
     this.averageTemperatureInC = this.bringAverageTemperatureInC(this.temperatureMin, this.temperatureMax);
-    this.bringDayInText = this.bringDayInText(this.day);
+    this.dayInText = this.bringDayInText(this.day);
   }
 
   bringAverageTemperatureInC(min:number, max:number): number {
@@ -28,8 +28,11 @@ export class OneDayWeatherBoxComponent implements OnInit {
     return Math.round((average - 32) * 5 / 9);
   }
 
-  bringDayInText(day: string): any {
-    return " ";
+  bringDayInText(day: string): any { // no need moment for this!
+    const dataObj = new Date(day);
+    const finalDay = dataObj.getDay();
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[finalDay];
   }
 
 }
