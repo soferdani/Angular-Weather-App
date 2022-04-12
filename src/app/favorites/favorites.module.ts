@@ -14,7 +14,7 @@ import { WeatherBoxModule } from '../weather-box/weather-box.module';
     WeatherBoxModule
   ],
   exports: [
-    FavoritesComponent
+    FavoritesComponent,
   ]
 })
 export class FavoritesModule { }

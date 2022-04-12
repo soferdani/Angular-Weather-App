@@ -13,13 +13,14 @@
 - [x] how to make the icon number in the weather box go to the function before its runs on the template.
 - [x] how to set up the favorite items a bit down and not so close to the nav bar.
 - [x] how to fix the weather box component for it to bring the info from the end point.
+- [x] add lazy loading to the app - its in the rout with the key - loadChildren !! its in the app of the academy! 
 
 ## Todo - Favorites
 - [ ] Make the remove button work - that will remove the current city from favorites
 - [ ] Change the name of the serviceService to something more informative
 
 ## Todo - Current Weather
-- [ ] Make the current weather responsive 
+- [ ] Make the current weather responsive with mock data
   - [ ] The 5day forecast need to be in flex container and brick like the others in the favorites 
 - [ ] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
 - [ ] Finish the current weather search logic
@@ -27,12 +28,9 @@
 ## Features to add 
 - [ ] Add login page with guards 
 - [ ] Make the app onPush logic 
-- [ ] add lazy loading to the app - its in the rout with the key - loadChildren !! its in the app of the academy! 
 - [ ] Use the nx - about the move :
   - [ ] the easy option is to create new workspace and build again. 
 
 ## Questions
 - [ ] how to make the buttons in the weather box in 2 rows and not in one
 
-
-need to add in the CV nx !!!!@# really important

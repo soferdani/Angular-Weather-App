@@ -12,7 +12,7 @@ export class WeatherBoxComponent implements OnInit {
   @Input() cityName: string | null = null;
   @Input() cityKey: number | string = 0;
 
-  currentLocationWeather$?: Observable<currentWeatherResponse> = this.bringWeatherService.getWeatherByKey(this.cityKey);
+  // currentLocationWeather$?: Observable<currentWeatherResponse> = this.bringWeatherService.getWeatherByKey(this.cityKey);
 
   weatherJson: currentWeatherResponse = {
     "LocalObservationDateTime": "2022-04-10T11:38:00+04:30",
@@ -39,7 +39,7 @@ export class WeatherBoxComponent implements OnInit {
   }
 
   constructor(
-    private bringWeatherService: ServiceService // MUST CHANGE THIS SERVICE SERVICE NAME - NOT COOL!!!
+    // private bringWeatherService: ServiceService // MUST CHANGE THIS SERVICE SERVICE NAME - NOT COOL!!!
     ) { }
 
   ngOnInit(): void {
