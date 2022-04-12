@@ -13,7 +13,6 @@ export const FAVORITES: citiesAndKeys[] = [
   { city: 'Paris', Key: 2988507 },
 ]
 
-
 @Injectable({
   providedIn: 'root'
 })

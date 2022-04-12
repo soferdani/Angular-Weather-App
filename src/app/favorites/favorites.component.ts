@@ -14,7 +14,6 @@ export class FavoritesComponent implements OnInit {
 
   }
 
-
   FAVORITES = FAVORITES;
 
 }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CurrentWeatherComponent } from './current-weather.component';
 import { MatButtonModule } from '@angular/material/button';
+import { OneDayWeatherBoxModule } from '../one-day-weather-box/one-day-weather-box.module';
 
 
 
@@ -15,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    OneDayWeatherBoxModule
   ],
   exports: [
     CurrentWeatherComponent

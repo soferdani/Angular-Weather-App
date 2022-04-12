@@ -1,10 +1,13 @@
+import { FiveDayForecastWeatherResponse } from './../service/5day-forecasts-response.interface';
 import { citiesAndKeys } from './weather.interface';
+import { filter, switchMap, takeUntil, tap, map } from 'rxjs/operators';
 import { BringWeatherService } from './bring-weather.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, startWith, Subject } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import { FavoritesCitiesQuery } from './state/current-weather.query';
-
+import { FiveDayForecastWeatherresponseMock, weatherJson } from './fiveDayWeatherResponseMock';
+import { currentWeatherResponse } from '../service/current-weather-response.interface';
 
 @Component({
   selector: 'app-current-weather',
@@ -20,6 +23,9 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
     { day: 'Thursday', temp: 25 },
     { day: 'Friday', temp: 26 },
   ]
+
+  FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse = FiveDayForecastWeatherresponseMock;
+  weatherJson: currentWeatherResponse = weatherJson;
 
   citiesAndKeys$: Observable<citiesAndKeys[]>;
 

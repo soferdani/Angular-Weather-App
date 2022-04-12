@@ -14,7 +14,9 @@
       </mat-autocomplete> -->
     <button mat-raised-button (click)="handelSearch()" color="primary">Search</button>
   </div>
-  <div class="weatherBox">
+  <div class="weatherBox" *ngIf="weatherJson" >
+    <!-- <div class="weatherBox" *ngIf="weatherJson" | async > -->
+
     <div class="currentCityTemp">tel aviv</div>
     <div class="addToFavorites">
       <button>add</button>
@@ -25,10 +27,9 @@
         <button (click)="addToFavorites(city.Key)" >press</button>
       </ng-container>
     </div>
-    <div class="fiveDayForecast">
-      <div class="forcastBox" *ngFor="let day of forecast" >
-        <div class="day">{{day.day}}</div>
-        <div class="temp">{{day.temp}}</div>
+    <div class="fiveDayForecast" *ngIf="FiveDayForecastWeatherresponseMock as fiveDay">
+      <div class="forcastBox" *ngFor="let day of fiveDay?.DailyForecasts" >
+        <app-one-day-weather-box></app-one-day-weather-box>
       </div>
     </div>
   </div>
