@@ -66,18 +66,20 @@
     height: 100%;
     width: 100%;
     // border: 1px solid black;
-    display: grid;
-    place-content: center;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  .forcastBox{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    place-content: center;
-    // border: 1px solid black;
-  }
+  // .forcastBox{
+
+  //   // height: 100%;
+  //   // width: 100%;
+  //   // display: grid;
+  //   // place-content: center;
+  //   // border: 1px solid black;
+  // }
 
 
 }
