@@ -20,12 +20,19 @@
 
 ## Todo - Current Weather
 - [ ] Make the current weather responsive 
+  - [ ] The 5day forecast need to be in flex container and brick like the others in the favorites 
 - [ ] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
 - [ ] Finish the current weather search logic
 
 ## Features to add 
 - [ ] Add login page with guards 
 - [ ] Make the app onPush logic 
+- [ ] add lazy loading to the app - its in the rout with the key - loadChildren !! its in the app of the academy! 
+- [ ] Use the nx - about the move :
+  - [ ] the easy option is to create new workspace and build again. 
 
 ## Questions
 - [ ] how to make the buttons in the weather box in 2 rows and not in one
+
+
+need to add in the CV nx !!!!@# really important

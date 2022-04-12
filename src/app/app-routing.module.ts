@@ -4,8 +4,8 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
-  { path: "current-weather", component: CurrentWeatherComponent },
-  { path: "favorites", component: FavoritesComponent },
+  { path: "current-weather", loadChildren: () => import("./current-weather/current-weather-routing.module").then(m => m.CurrentWeatherRoutingModule) },
+  { path: "favorites", loadChildren: () => import("./favorites/favorites-routing.module").then(m => m.FavoritesRoutingModule) },
   { path: "**", component: CurrentWeatherComponent },
 ];
 
