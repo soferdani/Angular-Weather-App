@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-one-day-weather-box',
@@ -6,10 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./one-day-weather-box.component.scss']
 })
 export class OneDayWeatherBoxComponent implements OnInit {
+  @Input() temperatureMin: number = 0 ;
+  @Input() temperatureMax: number = 0 ;
+  @Input() day: string = "" ;
+  @Input() link: string = "";
+  @Input() icon: number = 0;
 
-  constructor() { }
+  constructor() {
+
+  }
+  averageTemperatureInC: number | undefined;
+  dayInText: string | undefined;
 
   ngOnInit(): void {
+    this.averageTemperatureInC = this.bringAverageTemperatureInC(this.temperatureMin, this.temperatureMax);
+    this.bringDayInText = this.bringDayInText(this.day);
+  }
+
+  bringAverageTemperatureInC(min:number, max:number): number {
+    const average = Math.round((min + max) / 2);
+    return Math.round((average - 32) * 5 / 9);
+  }
+
+  bringDayInText(day: string): any {
+    return " ";
   }
 
 }

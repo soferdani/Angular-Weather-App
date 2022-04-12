@@ -3,18 +3,19 @@ import { CommonModule } from '@angular/common';
 import { WeatherBoxComponent } from './weather-box.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { WeatherUrlPipe } from './weather-url.pipe';
+import { WeatherUrlPipe } from '../shared/weather-url-pip/weather-url.pipe';
+import { WeatherUrlPipModule } from '../shared/weather-url-pip/weather-url-pip.module';
 
 
 @NgModule({
   declarations: [
     WeatherBoxComponent,
-    WeatherUrlPipe
   ],
   imports: [
     CommonModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    WeatherUrlPipModule
   ],
   exports: [
     WeatherBoxComponent

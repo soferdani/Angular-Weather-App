@@ -29,7 +29,13 @@
     </div>
     <div class="fiveDayForecast" *ngIf="FiveDayForecastWeatherresponseMock as fiveDay">
       <div class="forcastBox" *ngFor="let day of fiveDay?.DailyForecasts" >
-        <app-one-day-weather-box></app-one-day-weather-box>
+        <app-one-day-weather-box
+          [temperatureMin]="day.Temperature.Minimum.Value"
+          [temperatureMax]="day.Temperature.Maximum.Value"
+          [day]="day.Date"
+          [icon]="day.Day.Icon"
+          [link]="day.Link"
+        ></app-one-day-weather-box>
       </div>
     </div>
   </div>

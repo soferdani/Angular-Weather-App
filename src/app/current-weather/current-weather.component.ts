@@ -16,13 +16,6 @@ import { currentWeatherResponse } from '../service/current-weather-response.inte
 })
 
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
-  forecast: any[] = [
-    { day: 'Monday', temp: 22 },
-    { day: 'Tuesday', temp: 23 },
-    { day: 'Wednesday', temp: 24 },
-    { day: 'Thursday', temp: 25 },
-    { day: 'Friday', temp: 26 },
-  ]
 
   FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse = FiveDayForecastWeatherresponseMock;
   weatherJson: currentWeatherResponse = weatherJson;
