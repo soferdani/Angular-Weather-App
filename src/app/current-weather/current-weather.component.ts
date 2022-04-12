@@ -20,6 +20,8 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse = FiveDayForecastWeatherresponseMock;
   weatherJson: currentWeatherResponse = weatherJson;
 
+  currentCity: string = 'Tel Aviv';
+
   citiesAndKeys$: Observable<citiesAndKeys[]>;
 
   constructor(
