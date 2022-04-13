@@ -1,8 +1,11 @@
 <mat-card class="one-day-weather-card">
   <mat-card-title-group>
     <mat-card-title>{{dayInText}}</mat-card-title>
-      <img mat-card-sm-image [src]="icon | weatherUrl" >
   </mat-card-title-group>
+  <div>
+    <img mat-card-sm-image [src]="icon | weatherUrl" >
+
+  </div>
   <mat-card-content>
     {{averageTemperatureInC}}&deg;
     <button mat-button ejs-button cssClass='e-link'><a href="{{link}}" target='_blank'>MORE INFO</a></button>

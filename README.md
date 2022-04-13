@@ -14,14 +14,15 @@
 - [x] how to set up the favorite items a bit down and not so close to the nav bar.
 - [x] how to fix the weather box component for it to bring the info from the end point.
 - [x] add lazy loading to the app - its in the rout with the key - loadChildren !! its in the app of the academy! 
+- [x] Say i have a costume pip that i want to use around the app - what is the best practice ? 
+- [x] Make the current weather responsive with mock data
+- [x] The 5day forecast need to be in flex container and brick like the others in the favorites 
 
 ## Todo - Favorites
 - [ ] Make the remove button work - that will remove the current city from favorites
 - [ ] Change the name of the serviceService to something more informative
 
 ## Todo - Current Weather
-- [ ] Make the current weather responsive with mock data
-  - [ ] The 5day forecast need to be in flex container and brick like the others in the favorites 
 - [ ] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
 - [ ] Finish the current weather search logic
 - [ ] fix the service!!
@@ -34,12 +35,4 @@
 
 ## Questions
 - [ ] how to make the buttons in the weather box in 2 rows and not in one
-- [ ] Say i have a costume pip that i want to use around the app - what is the best practice ? 
 - [ ] How to make the "more info" button be on the right side and when i click i want it to open new window
-### Things I need from the 2 response api in the current weather
-- [ ] weather json :
-  - [ ] WeatherIcon + the pip i built
-  - [ ] WeatherText
-  - [ ] Temperature - Metric - Value
-- [ ] citiesAndKeys:
-  - [ ] city name 

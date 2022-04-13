@@ -9,6 +9,11 @@
   align-items: center;
 
 
+  .mat-card-sm-image {
+    width: 75px;
+    height: 45px;
+}
+
   .searchBox {
     height: auto;
     width: 80%;
@@ -70,6 +75,9 @@
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
+
+    
+
   }
 
 }
