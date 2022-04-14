@@ -1,6 +1,8 @@
 import { currentWeatherResponse } from '../service/current-weather-response.interface';
 import { FiveDayForecastWeatherResponse } from './../service/5day-forecasts-response.interface';
 
+//need to remove all this file
+
 export const FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse = {
   "Headline": {
     "EffectiveDate": "2022-04-12T08:00:00+04:30",

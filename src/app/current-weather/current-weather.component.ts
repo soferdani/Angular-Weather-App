@@ -1,14 +1,14 @@
 import { FiveDayForecastWeatherResponse } from './../service/5day-forecasts-response.interface';
 import { citiesAndKeys } from './weather.interface';
-import { filter, switchMap, takeUntil, tap, map } from 'rxjs/operators';
-import { BringWeatherService } from './bring-weather.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, startWith, Subject } from 'rxjs';
+import { BringWeatherService } from '../bring-weather.service';
+import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
+import { debounceTime, distinctUntilChanged, filter, Observable, startWith, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import { FavoritesCitiesQuery } from './state/current-weather.query';
 import { FiveDayForecastWeatherresponseMock, weatherJson } from './fiveDayWeatherResponseMock';
 import { currentWeatherResponse } from '../service/current-weather-response.interface';
-
+import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
+import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-response.interface';
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
@@ -17,62 +17,60 @@ import { currentWeatherResponse } from '../service/current-weather-response.inte
 
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
+  //--- this is temp code
   FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse = FiveDayForecastWeatherresponseMock;
   weatherJson: currentWeatherResponse = weatherJson;
-
-  currentCity: string = 'Tel Aviv';
-
   citiesAndKeys$: Observable<citiesAndKeys[]>;
+  //--- this is temp code
+
+  cityFromUser = new FormControl('');
+  autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
+
+  onDestroy$ = new Subject<void>();
 
   constructor(
     private readonly weatherService: BringWeatherService,
     private favoritesCitiesQuery: FavoritesCitiesQuery
-  ) {
-    this.citiesAndKeys$ = this.favoritesCitiesQuery.select('favoritesCities');
-  }
+    ) {
+      this.citiesAndKeys$ = this.favoritesCitiesQuery.select('favoritesCities');
+    }
 
-  onDestroy$ = new Subject<void>();
+    autoCompletedInput$ = this.cityFromUser.valueChanges.pipe(
+      filter((data : string ) => data.length > 0),
+      takeUntil(this.onDestroy$),
+      debounceTime(400),
+      distinctUntilChanged(),
+      switchMap((data: string) => {
+        return this.weatherService.getAutocomplete(data);
+      })
+    ).subscribe((suggestions: any) => {
+      this.autoCompletedSuggestions$ = suggestions;
+    });
 
-  currentConditionInCurrentCity$: Observable<any> | unknown = null;
-  cityFromUser = new FormControl('');
 
+    selectSuggestCity(city: number): void {
+      console.log(city);
+
+    }
 
 
   addToFavorites(key: number) {// need to add to favorites store
     console.log(key);
-
-
   }
-
-
 
   handelSearch() {
     const tempCityCode: number = 210841;
     // this.weatherService.getCurrentConditionsByKey(tempCityCode).pipe()
   }
 
-  // citiesAndKeys$: Observable<any> = this.cityFromUser.valueChanges.pipe(
-  //   takeUntil(this.onDestroy$),
-  //   debounceTime(400),
-  //   distinctUntilChanged(),
-  //   filter((data) => data.length > 2),
-  //   switchMap((search) => this.weatherService.getAutocomplete(search)),
-  //   // tap((data) => console.log('data:', data)),
-  //   map((data) => {
-  //     console.log( data);
-  //     // data.map(city => {
 
-  //     // })
-  //   })
-
-  //     // return data.map((item: citiesAndKeys) => {
-  //     //   return { city: item.LocalizedName, key: item.Key }})}),
-  //         // tap((data) => console.log('data:', data)),
-  // );
-
-
-
-  ngOnInit(): void { };
+  ngOnInit(): void {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => { });
+    } else {
+      console.log('Geolocation is not supported by this browser.');
+    }
+  };
 
   ngOnDestroy(): void {
     this.onDestroy$.next();

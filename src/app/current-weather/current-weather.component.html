@@ -1,17 +1,16 @@
 <div class="currentWeather">
   <div class="searchBox">
     <input
-      [formControl]="cityFromUser"
-      class="iputSearch"
-      list='cities'
       type="text"
-      placeholder="City">
-      <!-- [matAutocomplete]="auto"> -->
-      <!-- <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let city of citiesAndKeys$ | async" [value]="city">
-          {{city.city}}
-        </mat-option>
-      </mat-autocomplete> -->
+      placeholder="City"
+      class="iputSearch"
+      [formControl]="cityFromUser"
+      [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let city of autoCompletedSuggestions$" [value]="city" (click)="selectSuggestCity(city.Key)" >
+        {{city.LocalizedName}}
+      </mat-option>
+    </mat-autocomplete>
     <button mat-raised-button (click)="handelSearch()" color="primary">Search</button>
   </div>
   <div class="weatherBox" *ngIf="weatherJson" >
@@ -20,7 +19,7 @@
     <div class="currentCityTemp">
       <mat-card class="example-card">
         <mat-card-title-group>
-          <mat-card-title>{{currentCity}}</mat-card-title>
+          <mat-card-title>tel aviv</mat-card-title>
         </mat-card-title-group>
         <mat-card-content>
 
