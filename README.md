@@ -20,15 +20,17 @@
 - [x] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
 - [x] how to make the buttons in the weather box in 2 rows and not in one
 - [x] How to make the "more info" button be on the right side and when i click i want it to open new window
+- [x] is it better to to create one function in the bring weather service that make all the reqs? or my way is fine?
+- [x] Finish the current weather search logic
 
 ## Todo - Favorites
 - [ ] Make the remove button work - that will remove the current city from favorites
 - [ ] Change the name of the serviceService to something more informative
 
 ## Todo - Current Weather
-- [ ] Finish the current weather search logic
 - [ ] fix the service!!
-
+- [ ] finish show the weather forecast 
+- [ ] remove an use models in the current weather module - pip and matCard 
 ## Features to add 
 - [ ] Add login page with guards 
 - [ ] Make the app onPush logic 
@@ -38,5 +40,5 @@
 ## Questions
 - [ ] how to make the search area not present obj obj ?
 - [ ] make the types work
-- [ ] is it better to to create one function in the bring weather service that make all the reqs? or my way is fine?
+- [ ] how to fix the mobile support and items styles to be perfect
 

@@ -29,6 +29,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   selectedKey: string | undefined;
   headline: string | undefined;
   forecastWeather: any;
+  cityName: any;
 
   onDestroy$ = new Subject<void>();
 
@@ -41,19 +42,18 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        this.weatherService.getWeatherByCoordinates(latitude, longitude).subscribe((data: GeoPositionResponse) => {
-          this.handleInitPosition(data);
-        });
-      });
-    } else {
-      this.weatherService.getWeatherByCoordinates(DEFAULT_LAT, DEFAULT_LNG).subscribe((data: GeoPositionResponse) => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(navigator.geolocation);
+      const { latitude, longitude } = position.coords;
+      this.weatherService.getWeatherByCoordinates(latitude, longitude).subscribe((data: GeoPositionResponse) => {
         this.handleInitPosition(data);
       });
-      console.log('Geolocation is not supported by this browser.');
-    }
+    }, () => {
+      this.weatherService.getWeatherByCoordinates(DEFAULT_LAT, DEFAULT_LNG).subscribe((data: GeoPositionResponse) => {
+        console.log(`Geolocation is not supported by this browser`);
+        this.handleInitPosition(data);
+      });
+    });
   };
 
   autoCompletedInput$ = this.cityFromUser.valueChanges.pipe(
@@ -74,18 +74,17 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   private handleInitPosition(geoPositionRes: GeoPositionResponse) {
     this.addToFavorites(geoPositionRes.Key);
-    //NEED TO CATCH THE NAMES
+    this.cityName = `${geoPositionRes.EnglishName}`;
     this.getFiveDayForecast(geoPositionRes.Key);
-
   }
 
 
   private getFiveDayForecast(key: string) {
-    this.selectedKey = key; // maybe i dont need this !
+    this.selectedKey = key;
     this.weatherService.get5DayForecast(key).subscribe((fiveDaysForecastData: FiveDayForecastWeatherResponse) => {
-    this.forecastWeather = fiveDaysForecastData.DailyForecasts;
-    this.headline = fiveDaysForecastData.Headline.Text;
-  });
+      this.forecastWeather = fiveDaysForecastData.DailyForecasts;
+      this.headline = fiveDaysForecastData.Headline.Text;
+    });
   }
 
 

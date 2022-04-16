@@ -17,15 +17,7 @@
     <!-- <div class="weatherBox" *ngIf="weatherJson" | async > -->
 
     <div class="currentCityTemp">
-      <mat-card class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>tel aviv</mat-card-title>
-        </mat-card-title-group>
-        <mat-card-content>
-
-          <img mat-card-sm-image [src]="weatherJson.WeatherIcon | weatherUrl" >
-        </mat-card-content>
-      </mat-card>
+      <mat-card-title>{{cityName}}</mat-card-title>
     </div>
     <div class="addToFavorites">
       <button mat-fab color="primary" >
@@ -34,14 +26,10 @@
       </button>
     </div>
     <div class="currentConditions">
-      {{weatherJson.WeatherText}}
-      <!-- <ng-container *ngFor="let city of citiesAndKeys$ | async">
-        <div class="currentCity">{{city.city}}</div>
-        <button (click)="addToFavorites(city.Key)" >press</button>
-      </ng-container> -->
+      {{headline}}
     </div>
     <div class="fiveDayForecast" *ngIf="forecastWeather as fiveDay">
-        <app-one-day-weather-box  *ngFor="let day of fiveDay?.DailyForecasts"
+        <app-one-day-weather-box  *ngFor="let day of fiveDay"
           [temperatureMin]="day.Temperature.Minimum.Value"
           [temperatureMax]="day.Temperature.Maximum.Value"
           [day]="day.Date"
