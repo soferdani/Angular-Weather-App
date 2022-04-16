@@ -17,13 +17,15 @@
 - [x] Say i have a costume pip that i want to use around the app - what is the best practice ? 
 - [x] Make the current weather responsive with mock data
 - [x] The 5day forecast need to be in flex container and brick like the others in the favorites 
+- [x] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
+- [x] how to make the buttons in the weather box in 2 rows and not in one
+- [x] How to make the "more info" button be on the right side and when i click i want it to open new window
 
 ## Todo - Favorites
 - [ ] Make the remove button work - that will remove the current city from favorites
 - [ ] Change the name of the serviceService to something more informative
 
 ## Todo - Current Weather
-- [ ] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
 - [ ] Finish the current weather search logic
 - [ ] fix the service!!
 
@@ -34,5 +36,7 @@
   - [ ] the easy option is to create new workspace and build again. 
 
 ## Questions
-- [ ] how to make the buttons in the weather box in 2 rows and not in one
-- [ ] How to make the "more info" button be on the right side and when i click i want it to open new window
+- [ ] how to make the search area not present obj obj ?
+- [ ] make the types work
+- [ ] is it better to to create one function in the bring weather service that make all the reqs? or my way is fine?
+

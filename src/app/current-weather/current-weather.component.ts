@@ -1,4 +1,4 @@
-import { FiveDayForecastWeatherResponse } from './../service/5day-forecasts-response.interface';
+import { FiveDayForecastWeatherResponse, Headline } from './../service/5day-forecasts-response.interface';
 import { citiesAndKeys } from './weather.interface';
 import { BringWeatherService } from '../bring-weather.service';
 import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
@@ -25,6 +25,8 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
+  selectedKey: number | undefined;
+  headline: string | undefined;
 
   onDestroy$ = new Subject<void>();
 
@@ -52,6 +54,11 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
       console.log(city);
 
     }
+
+  getFiveDayForecast(key: number) {
+    this.selectedKey = key; // maybe i dont need this !
+    
+  }
 
 
   addToFavorites(key: number) {// need to add to favorites store

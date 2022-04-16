@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
@@ -187,15 +188,14 @@ export class BringWeatherService {
       return this.httpClient.get(url);
     }
 
-    public getCurrentConditionsByKey(name: number) {
-      const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${environment.apiKey}&q=${name}`;
-      return this.httpClient.get(url);
-    }
 
-
-  public getAutocomplete(input: string) {
+  public getAutocomplete(input: string): Observable<any> { // this is working
     const url = `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${environment.apiKey}&q=${input}`;
     return this.httpClient.get(url);
   }
 
+  public get5DayForecast(key: any) : Observable<any> {
+    const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${environment.apiKey}`
+    return this.httpClient.get(url);
+  }
 }
