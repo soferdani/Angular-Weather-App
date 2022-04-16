@@ -183,7 +183,7 @@ export class BringWeatherService {
   constructor(private httpClient: HttpClient) { }
 
 
-    public getWeatherByCoordinates(lat: number, lon: number) { // not in use at the moment
+    public getWeatherByCoordinates(lat: number, lon: number): Observable<any> { // not in use at the moment
       const url = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${environment.apiKey}&q=${lat},${lon}`;
       return this.httpClient.get(url);
     }
@@ -194,7 +194,7 @@ export class BringWeatherService {
     return this.httpClient.get(url);
   }
 
-  public get5DayForecast(key: any) : Observable<any> {
+  public get5DayForecast(key: any) : Observable<any> { // need to test!!
     const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${environment.apiKey}`
     return this.httpClient.get(url);
   }
