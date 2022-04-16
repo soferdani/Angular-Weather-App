@@ -18,15 +18,16 @@ import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-respons
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   //--- this is temp code
-  FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse = FiveDayForecastWeatherresponseMock;
   weatherJson: currentWeatherResponse = weatherJson;
   citiesAndKeys$: Observable<citiesAndKeys[]>;
   //--- this is temp code
+
 
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
   selectedKey: number | undefined;
   headline: string | undefined;
+  forecastWeather: any;
 
   onDestroy$ = new Subject<void>();
 
@@ -45,19 +46,23 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
       switchMap((data: string) => {
         return this.weatherService.getAutocomplete(data);
       })
-    ).subscribe((suggestions: any) => {
-      this.autoCompletedSuggestions$ = suggestions;
+      ).subscribe((suggestions: any) => {
+        this.autoCompletedSuggestions$ = suggestions;
+      });
+
+
+      selectSuggestCity(city: number): void {
+        console.log(city);
+
+      }
+
+
+    getFiveDayForecast(key: number) {
+      this.selectedKey = key; // maybe i dont need this !
+      this.weatherService.get5DayForecast(key).subscribe((fiveDaysForecastData: FiveDayForecastWeatherResponse) => {
+      this.forecastWeather = fiveDaysForecastData.DailyForecasts;
+      this.headline = fiveDaysForecastData.Headline.Text;
     });
-
-
-    selectSuggestCity(city: number): void {
-      console.log(city);
-
-    }
-
-  getFiveDayForecast(key: number) {
-    this.selectedKey = key; // maybe i dont need this !
-    
   }
 
 

@@ -40,7 +40,7 @@
         <button (click)="addToFavorites(city.Key)" >press</button>
       </ng-container> -->
     </div>
-    <div class="fiveDayForecast" *ngIf="FiveDayForecastWeatherresponseMock as fiveDay">
+    <div class="fiveDayForecast" *ngIf="forecastWeather as fiveDay">
         <app-one-day-weather-box  *ngFor="let day of fiveDay?.DailyForecasts"
           [temperatureMin]="day.Temperature.Minimum.Value"
           [temperatureMax]="day.Temperature.Maximum.Value"
