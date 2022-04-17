@@ -38,9 +38,7 @@ export class WeatherBoxComponent implements OnInit {
     "Link": "http://www.accuweather.com/en/ir/tehran/210841/current-weather/210841?lang=en-us"
   }
 
-  constructor(
-    // private bringWeatherService: ServiceService // MUST CHANGE THIS SERVICE SERVICE NAME - NOT COOL!!!
-    ) { }
+  constructor() { }
 
   ngOnInit(): void {
 

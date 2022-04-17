@@ -41,7 +41,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   }
 
 
-  ngOnInit(): void {
+  ngOnInit(): void { // done
     navigator.geolocation.getCurrentPosition((position) => {
       console.log(navigator.geolocation);
       const { latitude, longitude } = position.coords;
@@ -50,7 +50,6 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
       });
     }, () => {
       this.weatherService.getWeatherByCoordinates(DEFAULT_LAT, DEFAULT_LNG).subscribe((data: GeoPositionResponse) => {
-        console.log(`Geolocation is not supported by this browser`);
         this.handleInitPosition(data);
       });
     });
