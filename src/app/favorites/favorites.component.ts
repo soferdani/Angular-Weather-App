@@ -1,4 +1,3 @@
-import { FAVORITES } from './../service/service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,6 +13,8 @@ export class FavoritesComponent implements OnInit {
 
   }
 
-  FAVORITES = FAVORITES;
-
+  FAVORITES = [
+    { city: 'London', key: 210841 },
+    { city: 'Paris', key: 2988507 },
+  ]
 }

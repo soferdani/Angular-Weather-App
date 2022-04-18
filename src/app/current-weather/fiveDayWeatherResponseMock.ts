@@ -1,9 +1,5 @@
-import { currentWeatherResponse } from '../service/current-weather-response.interface';
-import { FiveDayForecastWeatherResponse } from './../service/5day-forecasts-response.interface';
 
-//need to remove all this file
-
-export const FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse = {
+export const FiveDayForecastWeatherresponseMock: any = {
   "Headline": {
     "EffectiveDate": "2022-04-12T08:00:00+04:30",
     "EffectiveEpochDate": 1649734200,
@@ -174,7 +170,7 @@ export const FiveDayForecastWeatherresponseMock: FiveDayForecastWeatherResponse 
   ]
 }
 
-export const weatherJson: currentWeatherResponse = {
+export const weatherJson: any = {
   "LocalObservationDateTime": "2022-04-10T11:38:00+04:30",
   "EpochTime": 1649574480,
   "WeatherText": "Partly sunny",

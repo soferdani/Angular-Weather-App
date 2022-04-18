@@ -5,7 +5,7 @@ import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, startWith, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import { FavoritesCitiesQuery } from './state/current-weather.query';
-import { FiveDayForecastWeatherresponseMock, weatherJson } from './fiveDayWeatherResponseMock'; // need to remove
+import { weatherJson } from './fiveDayWeatherResponseMock'; // need to remove
 import { currentWeatherResponse } from '../service/current-weather-response.interface';
 import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
 import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-response.interface';
