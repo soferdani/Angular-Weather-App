@@ -1,17 +1,17 @@
 import { Temperature } from './temperature.interface';
 
-export interface CurrentConditions {
+export interface CurrentWeatherResponse {
   LocalObservationDateTime: string;
   EpochTime: number;
   WeatherText: string;
   WeatherIcon: number;
   HasPrecipitation: boolean;
-  PrecipitationType?: any;
+  PrecipitationType: string| null;
   IsDayTime: boolean;
   Temperature: Temperature;
   MobileLink: string;
   Link: string;
-}
+};
 
 
 

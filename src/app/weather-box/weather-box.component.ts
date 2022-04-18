@@ -1,6 +1,6 @@
+import { CurrentWeatherResponse } from './../shared/interfaces/current-weather-response.interface';
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
-import { currentWeatherResponse } from '../service/current-weather-response.interface';
 
 @Component({
   selector: 'app-weather-box',
@@ -13,7 +13,7 @@ export class WeatherBoxComponent implements OnInit {
 
   // currentLocationWeather$?: Observable<currentWeatherResponse> = this.bringWeatherService.getWeatherByKey(this.cityKey);
 
-  weatherJson: currentWeatherResponse = {
+  weatherJson: CurrentWeatherResponse = {
     "LocalObservationDateTime": "2022-04-10T11:38:00+04:30",
     "EpochTime": 1649574480,
     "WeatherText": "Partly sunny",

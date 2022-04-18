@@ -1,8 +1,42 @@
-import { Temperature } from './temperature.interface';
+export interface Headline {
+  EffectiveDate: string;
+  EffectiveEpochDate: number;
+  Severity: number;
+  Text: string;
+  Category: string;
+  EndDate: string;
+  EndEpochDate: number;
+  MobileLink: string;
+  Link: string;
+}
 
-export interface FiveDaysForecastResponse {
-  Headline: Headline;
-  DailyForecasts: DailyForecast[];
+export interface Minimum {
+  Value: number;
+  Unit: string;
+  UnitType: number;
+}
+
+export interface Maximum {
+  Value: number;
+  Unit: string;
+  UnitType: number;
+}
+
+export interface Temperature {
+  Minimum: Minimum;
+  Maximum: Maximum;
+}
+
+export interface Day {
+  Icon: number;
+  IconPhrase: string;
+  HasPrecipitation: boolean;
+}
+
+export interface Night {
+  Icon: number;
+  IconPhrase: string;
+  HasPrecipitation: boolean;
 }
 
 export interface DailyForecast {
@@ -16,36 +50,8 @@ export interface DailyForecast {
   Link: string;
 }
 
-interface Night {
-  Icon: number;
-  IconPhrase: string;
-  HasPrecipitation: boolean;
-  PrecipitationType?: string;
-  PrecipitationIntensity?: string;
-}
-
-interface Day {
-  Icon: number;
-  IconPhrase: string;
-  HasPrecipitation: boolean;
-}
-
-
-interface Minimum {
-  Value: number;
-  Unit: string;
-  UnitType: number;
-}
-
-interface Headline {
-  EffectiveDate: string;
-  EffectiveEpochDate: number;
-  Severity: number;
-  Text: string;
-  Category: string;
-  EndDate?: any;
-  EndEpochDate?: any;
-  MobileLink: string;
-  Link: string;
+export interface FiveDayForecastWeatherResponse {
+  Headline: Headline;
+  DailyForecasts: DailyForecast[];
 }
 

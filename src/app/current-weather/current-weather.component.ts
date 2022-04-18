@@ -1,15 +1,15 @@
-import { FiveDayForecastWeatherResponse, Headline } from './../service/5day-forecasts-response.interface';
 import { citiesAndKeys } from './weather.interface';
 import { BringWeatherService } from '../bring-weather.service';
 import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
-import { debounceTime, distinctUntilChanged, filter, Observable, startWith, Subject, switchMap, takeUntil } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import { FavoritesCitiesQuery } from './state/current-weather.query';
 import { weatherJson } from './fiveDayWeatherResponseMock'; // need to remove
-import { currentWeatherResponse } from '../service/current-weather-response.interface';
 import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
 import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-response.interface';
 import { GeoPositionResponse } from '../shared/interfaces/geo-position-response.interface';
+import { FiveDayForecastWeatherResponse } from '../shared/interfaces/5day-forecasts-response.interface';
+import { CurrentWeatherResponse } from '../shared/interfaces/current-weather-response.interface';
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
@@ -19,7 +19,7 @@ import { GeoPositionResponse } from '../shared/interfaces/geo-position-response.
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   //--- this is temp code
-  weatherJson: currentWeatherResponse = weatherJson;
+  weatherJson: CurrentWeatherResponse = weatherJson;
   citiesAndKeys$: Observable<citiesAndKeys[]>;
   //--- this is temp code
 
