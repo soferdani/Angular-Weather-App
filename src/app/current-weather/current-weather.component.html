@@ -7,11 +7,11 @@
       [formControl]="cityFromUser"
       [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let city of autoCompletedSuggestions$" [value]="city" (click)="selectSuggestCity(city.Key)" >
+      <mat-option *ngFor="let city of autoCompletedSuggestions$" [value]="city" (click)="selectSuggestCity(city)" >
         {{city.LocalizedName}}
       </mat-option>
     </mat-autocomplete>
-    <button mat-raised-button (click)="handelSearch()" color="primary">Search</button>
+    <!-- <button mat-raised-button (click)="handelSearch()" color="primary">Search</button> -->
   </div>
   <div class="weatherBox" *ngIf="weatherJson" >
     <!-- <div class="weatherBox" *ngIf="weatherJson" | async > -->
@@ -21,7 +21,7 @@
     </div>
     <div class="addToFavorites">
       <button mat-fab color="primary" >
-        <mat-icon>favorite_border</mat-icon>
+        <mat-icon (click)="toggleFavorites()">favorite_border</mat-icon>
         <!-- <mat-icon>favorite</mat-icon> -->
       </button>
     </div>

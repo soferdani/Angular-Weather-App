@@ -1,4 +1,3 @@
-import { citiesAndKeys } from './weather.interface';
 import { BringWeatherService } from '../bring-weather.service';
 import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
@@ -10,6 +9,7 @@ import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-respons
 import { GeoPositionResponse } from '../shared/interfaces/geo-position-response.interface';
 import { FiveDayForecastWeatherResponse } from '../shared/interfaces/5day-forecasts-response.interface';
 import { CurrentWeatherResponse } from '../shared/interfaces/current-weather-response.interface';
+import { StateAppService } from '../state-app.service';
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
@@ -20,22 +20,23 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   //--- this is temp code
   weatherJson: CurrentWeatherResponse = weatherJson;
-  citiesAndKeys$: Observable<citiesAndKeys[]>;
+  citiesAndKeys$: Observable<any[]>;
   //--- this is temp code
 
 
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
   selectedKey: string | undefined;
+  cityName: any;
   headline: string | undefined;
   forecastWeather: any;
-  cityName: any;
 
   onDestroy$ = new Subject<void>();
 
   constructor(
     private readonly weatherService: BringWeatherService,
-    private favoritesCitiesQuery: FavoritesCitiesQuery
+    private favoritesCitiesQuery: FavoritesCitiesQuery,
+    private state : StateAppService
     ) {
       this.citiesAndKeys$ = this.favoritesCitiesQuery.select('favoritesCities');
   }
@@ -67,15 +68,20 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   });
 
 
-  selectSuggestCity(city: number): void {
-    console.log(city);
+  selectSuggestCity(city: AutoCompleteResponse): void {
+    console.log(city.Key);
+
+    this.cityName = city.LocalizedName;
+    this.getFiveDayForecast(city.Key);
   }
 
   private handleInitPosition(geoPositionRes: GeoPositionResponse) {
-    this.addToFavorites(geoPositionRes.Key);
+    // this.toggleFavorites(geoPositionRes.Key);
     this.cityName = `${geoPositionRes.EnglishName}`;
+    this.selectedKey = geoPositionRes.Key;
     this.getFiveDayForecast(geoPositionRes.Key);
   }
+
 
 
   private getFiveDayForecast(key: string) {
@@ -87,14 +93,15 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   }
 
 
-  private addToFavorites(key: string) {
-    console.log(key);
+  toggleFavorites() {
+    const selectedCity = {
+      key: this.selectedKey,
+      name: this.cityName
+    }
+
+    console.log('toggleFavorites');
   }
 
-  handelSearch() {
-    const tempCityCode: number = 210841;
-    // this.weatherService.getCurrentConditionsByKey(tempCityCode).pipe()
-  }
 
   ngOnDestroy(): void {
     this.onDestroy$.next();

@@ -14,7 +14,7 @@ export class FavoritesComponent implements OnInit {
   }
 
   FAVORITES = [
-    { city: 'London', key: 210841 },
-    { city: 'Paris', key: 2988507 },
+    { city: 'London', key: "328328" },
+    { city: 'Paris', key: "623" },
   ]
 }

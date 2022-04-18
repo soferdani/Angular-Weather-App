@@ -22,15 +22,17 @@
 - [x] How to make the "more info" button be on the right side and when i click i want it to open new window
 - [x] is it better to to create one function in the bring weather service that make all the reqs? or my way is fine?
 - [x] Finish the current weather search logic
+- [x] fix the service!!
+- [x] finish show the weather forecast 
+- [x] Change the name of the serviceService to something more informative
 
 ## Todo - Favorites
 - [ ] Make the remove button work - that will remove the current city from favorites
-- [ ] Change the name of the serviceService to something more informative
 
 ## Todo - Current Weather
-- [ ] fix the service!!
-- [ ] finish show the weather forecast 
-- [ ] remove an use models in the current weather module - pip and matCard 
+- [ ] remove an use models in the current weather module - and matCard
+- [ ] make the search work
+- [ ] make remove the button and insert input of matirial dasighn  
 ## Features to add 
 - [ ] Add login page with guards 
 - [ ] Make the app onPush logic 

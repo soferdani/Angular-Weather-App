@@ -1,9 +1,9 @@
-import { citiesAndKeys } from './../weather.interface';
+// import { citiesAndKeys } from './../weather.interface';
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 
 export interface FavoritesCities {
-  favoritesCities: citiesAndKeys[];
+  favoritesCities: any[];
 }
 
 export function createInitialState(): FavoritesCities {

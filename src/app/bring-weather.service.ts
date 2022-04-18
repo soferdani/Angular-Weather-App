@@ -1,3 +1,4 @@
+import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
@@ -10,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class BringWeatherService {
 
   constructor(private httpClient: HttpClient) { }
-  
+
   public getWeatherByCoordinates(lat: number, lon: number): Observable<any> {
     const url = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${environment.apiKey}&q=${lat},${lon}`;
     return this.httpClient.get(url);
@@ -27,7 +28,7 @@ export class BringWeatherService {
     return this.httpClient.get(url);
   }
 
-  public getCurrentWeather(key: any): Observable<any> { // not in use yet
+  public getCurrentWeather(key: any): Observable<any> {
     const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${environment.apiKey}`;
     return this.httpClient.get(url);
   }

@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
-export interface citiesAndKeys {
-  city: string;
-  key: string;
-}
+import { CitiesAndKeys } from './shared/interfaces/cities-and-keys.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateAppService {
-  private favoritesState$: BehaviorSubject<citiesAndKeys[]> = new BehaviorSubject<citiesAndKeys[]>([]);
+  private favoritesState$: BehaviorSubject<CitiesAndKeys[]> = new BehaviorSubject<CitiesAndKeys[]>([]);
 
-  getFavoritesState(): Observable<citiesAndKeys[]> {
+  getFavoritesState(): Observable<CitiesAndKeys[]> {
     return this.favoritesState$.asObservable();
   }
 
