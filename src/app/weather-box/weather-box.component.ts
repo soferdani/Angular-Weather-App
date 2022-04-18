@@ -1,6 +1,6 @@
 import { CurrentWeatherResponse } from './../shared/interfaces/current-weather-response.interface';
 import { Observable } from 'rxjs';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BringWeatherService } from '../bring-weather.service';
 
 @Component({
@@ -8,24 +8,16 @@ import { BringWeatherService } from '../bring-weather.service';
   templateUrl: './weather-box.component.html',
   styleUrls: ['./weather-box.component.scss']
 })
-export class WeatherBoxComponent implements OnInit, OnDestroy {
+export class WeatherBoxComponent implements OnInit{
   @Input() cityName: string | null = null;
   @Input() cityKey: string | undefined;
 
-  currentLocationWeather?: CurrentWeatherResponse;
+  currentLocationWeather$?: Observable<CurrentWeatherResponse[]>;
 
   constructor(private readonly weatherService: BringWeatherService) { }
 
   ngOnInit(): void {
-    this.weatherService.getCurrentWeather(this.cityKey).subscribe(
-      (weather: CurrentWeatherResponse[]) => {
-        this.currentLocationWeather = weather[0];
-      }
-    )
+    this.currentLocationWeather$ = this.weatherService.getCurrentWeather(this.cityKey);
   }
-  
-    ngOnDestroy(): void {
-      this.currentLocationWeather = undefined;
-    }
 
 }

@@ -1,23 +1,23 @@
-<ng-container *ngIf="currentLocationWeather">
-  <mat-card class="weather-box">
-    <mat-card-header>
-      <mat-card-title>{{cityName}}</mat-card-title>
-      <div mat-card-avatar class="example-header-image">
-        {{currentLocationWeather?.Temperature?.Metric?.Value}}&deg;
-      </div>
-    </mat-card-header>
-    <p>
-      <b>{{currentLocationWeather?.WeatherText}}</b>
-    </p>
-    <mat-card-content>
-      <img mat-card-image [src]="currentLocationWeather.WeatherIcon | weatherUrl">
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button ejs-button cssClass='e-link'><a href="{{currentLocationWeather?.Link}}" target='_blank'>MORE INFO</a></button>
-    </mat-card-actions>
-    <mat-card-actions>
-      <button mat-button>REMOVE FORM FAVORERS</button>
-    </mat-card-actions>
-  </mat-card>
+<ng-container *ngIf="currentLocationWeather$ | async as currentLocation">
+    <mat-card class="weather-box">
+      <mat-card-header>
+        <mat-card-title>{{cityName}}</mat-card-title>
+        <div mat-card-avatar class="example-header-image">
+          {{currentLocation[0].Temperature.Metric.Value}}&deg;
+        </div>
+      </mat-card-header>
+      <p>
+        <b>{{currentLocation[0].WeatherText}}</b>
+      </p>
+      <mat-card-content>
+        <img mat-card-image [src]="currentLocation[0].WeatherIcon | weatherUrl">
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button ejs-button cssClass='e-link'><a href="{{currentLocation[0].Link}}" target='_blank'>MORE INFO</a></button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-button>REMOVE FORM FAVORERS</button>
+      </mat-card-actions>
+    </mat-card>
 </ng-container>
 

@@ -1,14 +1,12 @@
 import { BringWeatherService } from '../bring-weather.service';
-import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import { FavoritesCitiesQuery } from './state/current-weather.query';
-import { weatherJson } from './fiveDayWeatherResponseMock'; // need to remove
 import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
 import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-response.interface';
 import { GeoPositionResponse } from '../shared/interfaces/geo-position-response.interface';
 import { FiveDayForecastWeatherResponse } from '../shared/interfaces/5day-forecasts-response.interface';
-import { CurrentWeatherResponse } from '../shared/interfaces/current-weather-response.interface';
 import { StateAppService } from '../state-app.service';
 @Component({
   selector: 'app-current-weather',
@@ -18,11 +16,7 @@ import { StateAppService } from '../state-app.service';
 
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
-  //--- this is temp code
-  weatherJson: CurrentWeatherResponse = weatherJson;
   citiesAndKeys$: Observable<any[]>;
-  //--- this is temp code
-
 
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
