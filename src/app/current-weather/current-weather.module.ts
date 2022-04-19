@@ -7,6 +7,7 @@ import { OneDayWeatherBoxModule } from '../one-day-weather-box/one-day-weather-b
 import {MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -22,7 +23,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     OneDayWeatherBoxModule,
     MatIconModule,
     MatCardModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatInputModule
   ],
   exports: [
     CurrentWeatherComponent

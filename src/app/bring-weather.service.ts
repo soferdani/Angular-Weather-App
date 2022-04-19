@@ -1,5 +1,5 @@
 import { tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
@@ -30,7 +30,8 @@ export class BringWeatherService {
 
   public getCurrentWeather(key: any): Observable<any> {
     const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${environment.apiKey}`;
-    return this.httpClient.get(url);
+    const response = this.httpClient.get(url);
+    return response;
   }
 
 }
