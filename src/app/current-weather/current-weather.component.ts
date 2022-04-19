@@ -2,7 +2,6 @@ import { BringWeatherService } from '../bring-weather.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
-// import { FavoritesCitiesQuery } from './state/current-weather.query';
 import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
 import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-response.interface';
 import { GeoPositionResponse } from '../shared/interfaces/geo-position-response.interface';
@@ -21,7 +20,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   favoritesCities$: Observable<CitiesAndKeys[]>
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
-  selectedKey: string | undefined;
+  selectedKey: string|any;
   cityName: any;
   headline: string | undefined;
   forecastWeather: any;
@@ -88,6 +87,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   toggleFavorites() {
     const currentFavorites = this.favoritesQuery.getValue().favorites;
     if (currentFavorites.find(city => city.key === this.selectedKey)) {
+      this.state.removeFavorite(this.selectedKey);
     } else {
       this.state.addFavorite(this.cityName, this.selectedKey);
     }

@@ -2,6 +2,7 @@ import { CurrentWeatherResponse } from './../shared/interfaces/current-weather-r
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { BringWeatherService } from '../bring-weather.service';
+import { StateAppService } from '../state-app.service';
 
 @Component({
   selector: 'app-weather-box',
@@ -14,10 +15,18 @@ export class WeatherBoxComponent implements OnInit{
 
   currentLocationWeather$?: Observable<CurrentWeatherResponse[]>;
 
-  constructor(private readonly weatherService: BringWeatherService) { }
+  constructor(
+    private readonly weatherService: BringWeatherService,
+    private state : StateAppService
+  ) { }
 
   ngOnInit(): void {
     this.currentLocationWeather$ = this.weatherService.getCurrentWeather(this.cityKey);
+  }
+
+
+  handelRemoveFromFavorites(): void {
+    this.state.removeFavorite(this.cityKey);
   }
 
 }
