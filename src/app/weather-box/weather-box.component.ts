@@ -10,7 +10,7 @@ import { BringWeatherService } from '../bring-weather.service';
 })
 export class WeatherBoxComponent implements OnInit{
   @Input() cityName: string | null = null;
-  @Input() cityKey: string | undefined;
+  @Input() cityKey: any;
 
   currentLocationWeather$?: Observable<CurrentWeatherResponse[]>;
 

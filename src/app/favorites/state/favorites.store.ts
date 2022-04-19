@@ -1,20 +1,23 @@
-import { citiesAndKeys } from './../../current-weather/weather.interface';
 import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
+import { CitiesAndKeys } from 'src/app/shared/interfaces/cities-and-keys.interface';
 
-export interface favoritesState {
-  favorites: citiesAndKeys[]
+export interface FavoritesState {
+  favorites: CitiesAndKeys[]
 }
 
-export function createInitialState(): favoritesState {
+export function createInitialState(): FavoritesState {
   return {
-    favorites: []
+    favorites: [
+      { city: 'London', key: "328328" },
+      { city: 'Paris', key: "623" },
+    ]
   };
 }
 
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'favorites' })
-export class CartStore extends Store<favoritesState> {
+export class FavoritesStore extends Store<FavoritesState> {
 
   constructor() {
     super(createInitialState());

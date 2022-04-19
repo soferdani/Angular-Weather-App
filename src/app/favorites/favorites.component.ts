@@ -1,4 +1,7 @@
+import { CitiesAndKeys } from './../shared/interfaces/cities-and-keys.interface';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FavoritesQuery } from './state/favorites.query';
 
 @Component({
   selector: 'app-favorites',
@@ -7,14 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+  favoritesCities$: Observable<CitiesAndKeys[]>
 
-  ngOnInit(): void {
-
+  constructor(private favoritesQuery:FavoritesQuery) {
+    this.favoritesCities$ = this.favoritesQuery.favoritesCities$;
   }
-
-  FAVORITES = [
-    { city: 'London', key: "328328" },
-    { city: 'Paris', key: "623" },
-  ]
+  ngOnInit(): void { }
 }

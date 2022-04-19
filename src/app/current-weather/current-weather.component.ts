@@ -16,7 +16,7 @@ import { StateAppService } from '../state-app.service';
 
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
-  citiesAndKeys$: Observable<any[]>;
+  citiesAndKeys$: Observable<any[]>; // not sure this is the way
 
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
@@ -63,14 +63,11 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
 
   selectSuggestCity(city: AutoCompleteResponse): void {
-    console.log(city.Key);
-
     this.cityName = city.LocalizedName;
     this.getFiveDayForecast(city.Key);
   }
 
   private handleInitPosition(geoPositionRes: GeoPositionResponse) {
-    // this.toggleFavorites(geoPositionRes.Key);
     this.cityName = `${geoPositionRes.EnglishName}`;
     this.selectedKey = geoPositionRes.Key;
     this.getFiveDayForecast(geoPositionRes.Key);
