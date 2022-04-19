@@ -24,6 +24,7 @@
 - [x] Finish the current weather search logic
 - [x] fix the service!!
 - [x] finish show the weather forecast 
+- [x] make the types work
 - [x] Change the name of the serviceService to something more informative
 
 ## Todo - Favorites
@@ -41,6 +42,4 @@
 
 ## Questions
 - [ ] how to make the search area not present obj obj ?
-- [ ] make the types work
-- [ ] how to fix the mobile support and items styles to be perfect
-
+- [ ] when i move to the fav tab is the current weather active the onDestroy method ?

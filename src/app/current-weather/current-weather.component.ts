@@ -2,12 +2,14 @@ import { BringWeatherService } from '../bring-weather.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
-import { FavoritesCitiesQuery } from './state/current-weather.query';
+// import { FavoritesCitiesQuery } from './state/current-weather.query';
 import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
 import { AutoCompleteResponse } from '../shared/interfaces/auto-complete-response.interface';
 import { GeoPositionResponse } from '../shared/interfaces/geo-position-response.interface';
 import { FiveDayForecastWeatherResponse } from '../shared/interfaces/5day-forecasts-response.interface';
 import { StateAppService } from '../state-app.service';
+import { FavoritesQuery } from '../favorites/state/favorites.query';
+import { CitiesAndKeys } from '../shared/interfaces/cities-and-keys.interface';
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
@@ -16,8 +18,7 @@ import { StateAppService } from '../state-app.service';
 
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
-  citiesAndKeys$: Observable<any[]>; // not sure this is the way
-
+  favoritesCities$: Observable<CitiesAndKeys[]>
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
   selectedKey: string | undefined;
@@ -29,11 +30,11 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly weatherService: BringWeatherService,
-    private favoritesCitiesQuery: FavoritesCitiesQuery,
+    private favoritesQuery:FavoritesQuery,
     private state : StateAppService
     ) {
-      this.citiesAndKeys$ = this.favoritesCitiesQuery.select('favoritesCities');
-  }
+      this.favoritesCities$ = this.favoritesQuery.favoritesCities$;
+    }
 
 
   ngOnInit(): void { // done
@@ -85,12 +86,11 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
 
   toggleFavorites() {
-    const selectedCity = {
-      key: this.selectedKey,
-      name: this.cityName
+    const currentFavorites = this.favoritesQuery.getValue().favorites;
+    if (currentFavorites.find(city => city.key === this.selectedKey)) {
+    } else {
+      this.state.addFavorite(this.cityName, this.selectedKey);
     }
-
-    console.log('toggleFavorites');
   }
 
 
