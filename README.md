@@ -48,3 +48,4 @@
 
 ## Questions
 - [ ] how to make the search area not present obj obj ?
+- [ ] how to make the navbar gone when im in the login component ?

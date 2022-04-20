@@ -1,17 +1,3 @@
-<!-- <div class="top">
-  <div class="start">
-    <div class="nav" *ngFor="let l of links" routerLinkActive="active">
-      <a [routerLink]="l.path">{{l.label}}</a>
-      <div class="line"></div>
-    </div>
-  </div>
-  <div class="end">
-
-    <div class="cart">
-    </div>
-  </div>
-</div> -->
-
   <nav mat-tab-nav-bar backgroundColor="primary" [tabPanel]="tabPanel">
     <a mat-tab-link *ngFor="let link of links">
       <div [routerLink]="link.path">
@@ -21,9 +7,10 @@
 
     <!-- mat-tab-link mat-focus-indicator -->
     <div class="mat-tab-link appName">
-      <mat-slide-toggle>
+      <!-- <mat-slide-toggle>
         Dark Theme
-      </mat-slide-toggle>
+      </mat-slide-toggle> -->
+      Dani's WeatherApp
     </div>
   </nav>
 
