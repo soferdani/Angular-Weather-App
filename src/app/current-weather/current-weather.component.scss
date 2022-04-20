@@ -20,9 +20,8 @@
     // border: 1px solid black;
     grid-area: search;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 2%;
-    place-content: center space-between;
+    justify-content: center;
+    margin-top: 15px;
   }
 
   .weatherBox{
@@ -76,7 +75,7 @@
     justify-content: space-around;
     align-items: center;
 
-    
+
 
   }
 

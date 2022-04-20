@@ -17,7 +17,6 @@
 - [x] Say i have a costume pip that i want to use around the app - what is the best practice ? 
 - [x] Make the current weather responsive with mock data
 - [x] The 5day forecast need to be in flex container and brick like the others in the favorites 
-- [x] use this [guide](https://learnsomethingquick.com/build-a-weather-app-with-angular/) to create the search
 - [x] how to make the buttons in the weather box in 2 rows and not in one
 - [x] How to make the "more info" button be on the right side and when i click i want it to open new window
 - [x] is it better to to create one function in the bring weather service that make all the reqs? or my way is fine?
@@ -26,15 +25,22 @@
 - [x] finish show the weather forecast 
 - [x] make the types work
 - [x] Change the name of the serviceService to something more informative
+- [x] remove an use models in the current weather module - and matCard
+- [x] make the search work
+- [x] make remove the button and insert input of matirial dasighn  
+- [x] Make the remove button work - that will remove the current city from favorites
+- [x] Fix the input position
 
 ## Todo - Favorites
-- [ ] Make the remove button work - that will remove the current city from favorites
 
 ## Todo - Current Weather
-- [ ] remove an use models in the current weather module - and matCard
-- [ ] make the search work
-- [ ] make remove the button and insert input of matirial dasighn  
+- [ ] Make the hart favorite
+- [ ] fix the bug when return to the main page its save the current location - need to use the init function
+- [ ] make nice matirial nav bar 
+- [ ] add dark and light theme 
+
 ## Features to add 
+- [ ] Make nice navbar
 - [ ] Add login page with guards 
 - [ ] Make the app onPush logic 
 - [ ] Use the nx - about the move :
@@ -42,4 +48,3 @@
 
 ## Questions
 - [ ] how to make the search area not present obj obj ?
-- [ ] when i move to the fav tab is the current weather active the onDestroy method ?
