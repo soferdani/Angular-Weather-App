@@ -38,7 +38,6 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { // done
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(navigator.geolocation);
       const { latitude, longitude } = position.coords;
       this.weatherService.getWeatherByCoordinates(latitude, longitude).subscribe((data: GeoPositionResponse) => {
         this.handleInitPosition(data);

@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
-import { environment } from '../environments/environment';
 import { FavoritesModule } from './favorites/favorites.module';
 import { WeatherBoxModule } from './weather-box/weather-box.module';
 import { CurrentWeatherModule } from './current-weather/current-weather.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { CurrentWeatherModule } from './current-weather/current-weather.module';
     // environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule,
     WeatherBoxModule,
-    CurrentWeatherModule
+    CurrentWeatherModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
