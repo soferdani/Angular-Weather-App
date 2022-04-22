@@ -1,4 +1,3 @@
-import { BringWeatherService } from '../bring-weather.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
@@ -9,6 +8,7 @@ import { FiveDayForecastWeatherResponse } from '../shared/interfaces/5day-foreca
 import { StateAppService } from '../state-app.service';
 import { FavoritesQuery } from '../favorites/state/favorites.query';
 import { CitiesAndKeys } from '../shared/interfaces/cities-and-keys.interface';
+import { BringWeatherService } from '../bring-weather.service';
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',

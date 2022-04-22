@@ -1,8 +1,8 @@
 import { CurrentWeatherResponse } from './../shared/interfaces/current-weather-response.interface';
 import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
-import { BringWeatherService } from '../bring-weather.service';
 import { StateAppService } from '../state-app.service';
+import { BringWeatherService } from '../bring-weather.service';
 
 @Component({
   selector: 'app-weather-box',
