@@ -10,7 +10,6 @@ import { StateAppService } from '../state-app.service';
 import { FavoritesQuery } from '../favorites/state/favorites.query';
 import { CitiesAndKeys } from '../shared/interfaces/cities-and-keys.interface';
 import { BringWeatherService } from '../bring-weather.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-current-weather',
@@ -34,7 +33,6 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
     private readonly weatherService: BringWeatherService,
     private favoritesQuery:FavoritesQuery,
     private state: StateAppService,
-    private _snackBar: MatSnackBar,
     private activeRout: ActivatedRoute
     ) {
       // this.favoritesCities$ = this.favoritesQuery.favoritesCities$;
@@ -92,20 +90,12 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
     });
   }
 
-  openSnackBar(message: string) {
-    this._snackBar.open(message, "Done",{
-      duration: 2500
-    });
-  }
-
   toggleFavorites() {
     const currentFavorites = this.favoritesQuery.getValue().favorites;
     if (currentFavorites.find(city => city.key === this.selectedKey)) {
       this.state.removeFavorite(this.selectedKey);
-      this.openSnackBar('City removed from favorites');
     } else {
       this.state.addFavorite(this.cityName, this.selectedKey);
-      this.openSnackBar(`${this.cityName} added to favorites`);
     }
   }
 
