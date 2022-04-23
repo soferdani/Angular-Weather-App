@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
@@ -30,13 +31,17 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   constructor(
     private readonly weatherService: BringWeatherService,
     private favoritesQuery:FavoritesQuery,
-    private state : StateAppService
+    private state: StateAppService,
+    private activeRout: ActivatedRoute
     ) {
       this.favoritesCities$ = this.favoritesQuery.favoritesCities$;
     }
 
 
-  ngOnInit(): void { // done
+  ngOnInit(): void {
+    this.activeRout.params.subscribe(params => { // chack if need to unsebscrive
+      console.log(params);
+    })
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       this.weatherService.getWeatherByCoordinates(latitude, longitude).subscribe((data: GeoPositionResponse) => {

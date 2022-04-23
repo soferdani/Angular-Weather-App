@@ -8,15 +8,10 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-
-
-
   formGroup = new FormGroup({
     username: new FormControl(undefined, [Validators.required]),
     password: new FormControl(undefined, Validators.compose([Validators.required, Validators.minLength(4)])),
   });
-
 
   constructor(private authService: AuthService) { }
 
