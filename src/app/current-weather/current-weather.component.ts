@@ -53,7 +53,8 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
     filter((data : string ) => data.length > 0),
     takeUntil(this.onDestroy$),
     debounceTime(400),
-    distinctUntilChanged(),      switchMap((data: string) => {
+    distinctUntilChanged(),
+    switchMap((data: string) => {
       return this.weatherService.getAutocomplete(data);
     })
   ).subscribe((suggestions: any) => {
@@ -62,6 +63,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
 
   selectSuggestCity(city: AutoCompleteResponse): void {
+    this.cityFromUser.patchValue(city.LocalizedName);
     this.cityName = city.LocalizedName;
     this.getFiveDayForecast(city.Key);
   }

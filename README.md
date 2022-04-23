@@ -26,7 +26,9 @@
 - [x] make the types work
 - [x] Change the name of the serviceService to something more informative
 - [x] remove an use models in the current weather module - and matCard
+- [x] how to make the search area not present obj obj ?
 - [x] make the search work
+- [x] how to make the navbar gone when im in the login component ?
 - [x] make remove the button and insert input of matirial dasighn  
 - [x] Make the remove button work - that will remove the current city from favorites
 - [x] Fix the input position
@@ -45,7 +47,6 @@
 - [ ] Add login page with guards
   - [ ] make the guards work 
 - [ ] Make the app onPush logic 
+- [ ] add fedback to the form !
 
 ## Questions
-- [ ] how to make the search area not present obj obj ?
-- [ ] how to make the navbar gone when im in the login component ?

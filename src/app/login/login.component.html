@@ -5,10 +5,10 @@
     <h2 class="inactive underlineHover">Sign Up </h2>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" >
+      <input formControlName="username" type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input formControlName="password" type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <button type="submit" class="fadeIn fourth" value="Log In">Log In</button>
     </form>
 
     <!-- Remind Passowrd -->

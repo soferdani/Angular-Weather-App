@@ -1,3 +1,5 @@
+import { CurrentWeatherRoutingModule } from './current-weather-routing.module';
+import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,6 +25,7 @@ import {MatInputModule} from '@angular/material/input';
     OneDayWeatherBoxModule,
     MatIconModule,
     MatCardModule,
+    CurrentWeatherRoutingModule,
     MatAutocompleteModule,
     MatInputModule
   ],

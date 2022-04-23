@@ -1,8 +1,10 @@
-<!-- <app-layout *ngif user axist else sho obly router outlet >  -->
-<app-layout >
+<app-layout *ngIf="user$ | async ;else showLogin" >
   <div class="container">
     <router-outlet></router-outlet>
   </div>
-
 </app-layout>
 
+<ng-template #showLogin>
+  <router-outlet>
+  </router-outlet>
+</ng-template>
