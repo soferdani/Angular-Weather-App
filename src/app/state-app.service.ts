@@ -23,9 +23,8 @@ export class StateAppService {
   }
 
 
-
   
-  openSnackBar(message: string) {
+  public openSnackBar(message: string) {
     this._snackBar.open(message, "Done",{
       duration: 2500
     });

@@ -85,6 +85,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   private getFiveDayForecast(key: string) {
     this.selectedKey = key;
     this.weatherService.get5DayForecast(key).subscribe((fiveDaysForecastData: FiveDayForecastWeatherResponse) => {
+      console.log(fiveDaysForecastData);
       this.forecastWeather = fiveDaysForecastData.DailyForecasts;
       this.headline = fiveDaysForecastData.Headline.Text;
     });

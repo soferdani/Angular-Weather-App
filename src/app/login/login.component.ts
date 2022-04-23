@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { StateAppService } from '../state-app.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl(undefined, Validators.compose([Validators.required, Validators.minLength(4)])),
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private stateApp : StateAppService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
     if (this.formGroup.valid) {
       this.authService.login(this.formGroup.value.username)
     } else {
+      this.stateApp.openSnackBar("One or more fields are invalid");
       console.error('invalid form');
     }
   }
