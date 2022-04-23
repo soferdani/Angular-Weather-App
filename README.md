@@ -33,6 +33,9 @@
 - [x] Make the remove button work - that will remove the current city from favorites
 - [x] Fix the input position
 - [x] make nice matirial nav bar 
+- [x] Make nice navbar
+  - [x] make the guards work 
+- [x] Add login page with guards
 
 ## Todo - Favorites
 - [ ] create nice looking outfit 
@@ -43,10 +46,8 @@
 - [ ] add dark and light theme 
 
 ## Features to add 
-- [ ] Make nice navbar
-- [ ] Add login page with guards
-  - [ ] make the guards work 
 - [ ] Make the app onPush logic 
 - [ ] add fedback to the form !
+- [ ] login page - hide password
 
 ## Questions

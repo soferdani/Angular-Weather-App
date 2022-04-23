@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -27,7 +28,8 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     CurrentWeatherRoutingModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   exports: [
     CurrentWeatherComponent
