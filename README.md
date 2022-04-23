@@ -30,21 +30,21 @@
 - [x] make remove the button and insert input of matirial dasighn  
 - [x] Make the remove button work - that will remove the current city from favorites
 - [x] Fix the input position
+- [x] make nice matirial nav bar 
 
 ## Todo - Favorites
+- [ ] create nice looking outfit 
 
 ## Todo - Current Weather
 - [ ] Make the hart favorite
 - [ ] fix the bug when return to the main page its save the current location - need to use the init function
-- [ ] make nice matirial nav bar 
 - [ ] add dark and light theme 
 
 ## Features to add 
 - [ ] Make nice navbar
-- [ ] Add login page with guards 
+- [ ] Add login page with guards
+  - [ ] make the guards work 
 - [ ] Make the app onPush logic 
-- [ ] Use the nx - about the move :
-  - [ ] the easy option is to create new workspace and build again. 
 
 ## Questions
 - [ ] how to make the search area not present obj obj ?
