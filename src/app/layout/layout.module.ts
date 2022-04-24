@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -20,7 +20,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     CommonModule,
     RouterModule,
     MatTabsModule,
-    MatSlideToggleModule
+    MatIconModule
   ]
 })
 export class LayoutModule { }

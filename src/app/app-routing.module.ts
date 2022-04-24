@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
-import { CurrentWeatherComponent } from './current-weather/current-weather.component';
-
-
 
 
 const routes: Routes = [

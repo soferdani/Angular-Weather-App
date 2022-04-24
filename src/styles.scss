@@ -2,5 +2,9 @@
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 
+// .darkMode{
+//   @include angular-material-theme($my-dark-theme);
+// }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
