@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
@@ -8,13 +8,13 @@ import { GeoPositionResponse } from '../shared/interfaces/geo-position-response.
 import { FiveDayForecastWeatherResponse } from '../shared/interfaces/5day-forecasts-response.interface';
 import { StateAppService } from '../state-app.service';
 import { FavoritesQuery } from '../favorites/state/favorites.query';
-import { CitiesAndKeys } from '../shared/interfaces/cities-and-keys.interface';
 import { BringWeatherService } from '../bring-weather.service';
 
 @Component({
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
-  styleUrls: ['./current-weather.component.scss']
+  styleUrls: ['./current-weather.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
@@ -64,7 +64,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
       return this.weatherService.getAutocomplete(data);
     })
   ).subscribe((suggestions: any) => {
-    this.autoCompletedSuggestions$ = suggestions;
+    this.autoCompletedSuggestions$ = suggestions; // need to fix this !!
   });
 
 

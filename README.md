@@ -34,20 +34,27 @@
 - [x] Fix the input position
 - [x] make nice matirial nav bar 
 - [x] Make nice navbar
+- [x] login page - hide password
   - [x] make the guards work 
-- [x] Add login page with guards
-
-## Todo - Favorites
-- [ ] create nice looking outfit 
-
-## Todo - Current Weather
-- [ ] Make the hart favorite
-- [ ] fix the bug when return to the main page its save the current location - need to use the init function
-- [ ] add dark and light theme 
-
-## Features to add 
 - [ ] Make the app onPush logic 
-- [ ] add fedback to the form !
-- [ ] login page - hide password
+- [ ] create nice looking outfit 
+- [x] Add login page with guards
+- [x] Make the hart favorite
+- [x] on push!@#!@#!@#
+- [x] add dark and light theme 
+- [x] fix the center
 
+
+
+## Presentation
+- [ ] show tha app component and the routing module - use of gard.
+- [ ] show the current weather logic -> show the one day weather box.
+  
+
+## Todo 
+- [ ] fix the bug when return to the main page its save the current location - need to use the init function
+- [ ] add animation to elements !
+- [ ] make it more beautiful
+- [ ] killer feature
+- [ ] animate css
 ## Questions

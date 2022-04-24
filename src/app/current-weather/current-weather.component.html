@@ -21,12 +21,11 @@
     <div class="addToFavorites">
       <button mat-fab color="primary" >
         <mat-icon (click)="toggleFavorites()">favorite_border</mat-icon>
-        <!-- <mat-icon>favorite</mat-icon> -->
       </button>
     </div>
-    <div class="currentConditions">
+    <p class="currentConditions">
       {{headline}}
-    </div>
+    </p>
     <div class="fiveDayForecast" *ngIf="forecastWeather as fiveDay">
         <app-one-day-weather-box  *ngFor="let day of fiveDay"
           [temperatureMin]="day.Temperature.Minimum.Value"

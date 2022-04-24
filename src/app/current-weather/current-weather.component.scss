@@ -30,9 +30,9 @@
     grid-area: weather;
     display: grid;
     grid-template:
-    "city . . favorites"
-    ". currentWeather currentWeather ."
-    "forecast forecast forecast forecast";
+    "city . . . favorites"
+    ". . currentWeather . ."
+    "forecast forecast forecast forecast forecast";
   }
 
   .currentCityTemp {
@@ -57,13 +57,9 @@
   .currentConditions{
     grid-area: currentWeather;
     height: 100%;
-    max-width: fit-content;
-    // width: 100%;
-    display: grid;
-    place-content: center;
     font-size: 30px;
     font-weight: bold;
-    // border: 1px solid black;
+    text-align: center;
   }
 
   .fiveDayForecast{

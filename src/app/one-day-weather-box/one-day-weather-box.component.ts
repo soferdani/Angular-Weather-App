@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit ,ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
   selector: 'app-one-day-weather-box',
   templateUrl: './one-day-weather-box.component.html',
-  styleUrls: ['./one-day-weather-box.component.scss']
+  styleUrls: ['./one-day-weather-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OneDayWeatherBoxComponent implements OnInit {
   @Input() temperatureMin: number = 0 ;
