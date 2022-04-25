@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import {FormControl} from "@angular/forms";
 import {DEFAULT_LAT , DEFAULT_LNG} from './../shared/consts';
@@ -14,12 +14,11 @@ import { BringWeatherService } from '../bring-weather.service';
   selector: 'app-current-weather',
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
 
-  // favoritesCities$: Observable<CitiesAndKeys[]>
   cityFromUser = new FormControl('');
   autoCompletedSuggestions$: Observable<AutoCompleteResponse[]>  | any;
   selectedKey: string|any;
@@ -30,19 +29,15 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   onDestroy$ = new Subject<void>();
 
   constructor(
+    private cdr : ChangeDetectorRef,
     private readonly weatherService: BringWeatherService,
     private favoritesQuery:FavoritesQuery,
     private state: StateAppService,
     private activeRout: ActivatedRoute
-    ) {
-      // this.favoritesCities$ = this.favoritesQuery.favoritesCities$;
-    }
+  ) { }
 
 
   ngOnInit(): void {
-    // this.activeRout.params.subscribe(params => { // chack if need to unsebscrive
-    //   console.log(params);
-    // })
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       this.weatherService.getWeatherByCoordinates(latitude, longitude).subscribe((data: GeoPositionResponse) => {
@@ -62,7 +57,7 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
     distinctUntilChanged(),
     switchMap((data: string) => {
       return this.weatherService.getAutocomplete(data);
-    }),
+    })
   )
 
 
@@ -79,13 +74,12 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
   }
 
 
-
   private getFiveDayForecast(key: string) {
     this.selectedKey = key;
     this.weatherService.get5DayForecast(key).subscribe((fiveDaysForecastData: FiveDayForecastWeatherResponse) => {
-      console.log(fiveDaysForecastData);
       this.forecastWeather = fiveDaysForecastData.DailyForecasts;
       this.headline = fiveDaysForecastData.Headline.Text;
+      this.cdr.markForCheck();
     });
   }
 

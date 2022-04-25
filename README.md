@@ -45,16 +45,10 @@
 - [x] fix the center
 
 
-
-## Presentation
-- [ ] show tha app component and the routing module - use of gard.
-- [ ] show the current weather logic -> show the one day weather box.
-  
-
 ## Todo 
-- [ ] fix the bug when return to the main page its save the current location - need to use the init function
-- [ ] add animation to elements !
-- [ ] make it more beautiful
-- [ ] killer feature
-- [ ] animate css
+- [x] fix the bug when return to the main page its save the current location - need to use the init function
+- [x] add animation to elements !
+- [x] make it more beautiful
+- [x] killer feature
+- [x] animate css
 ## Questions
