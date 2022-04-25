@@ -55,17 +55,15 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
     });
   };
 
-  autoCompletedInput$ = this.cityFromUser.valueChanges.pipe(
+  suggestions$ = this.cityFromUser.valueChanges.pipe(
     filter((data : string ) => data.length > 0),
     takeUntil(this.onDestroy$),
     debounceTime(400),
     distinctUntilChanged(),
     switchMap((data: string) => {
       return this.weatherService.getAutocomplete(data);
-    })
-  ).subscribe((suggestions: any) => {
-    this.autoCompletedSuggestions$ = suggestions; // need to fix this !!
-  });
+    }),
+  )
 
 
   selectSuggestCity(city: AutoCompleteResponse): void {
