@@ -29,7 +29,9 @@ export class OneDayWeatherBoxComponent implements OnInit {
     return Math.round((average - 32) * 5 / 9);
   }
 
-  bringDayInText(day: string): any { // no need moment for this!
+
+
+  bringDayInText(day: string): string { // no need moment for this!
     const dataObj = new Date(day);
     const finalDay = dataObj.getDay();
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
